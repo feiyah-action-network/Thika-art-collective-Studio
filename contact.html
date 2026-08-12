@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- include: partials/head.html -->
+    <title>Contact and Get Involved | Thika Art Collective Studio</title>
+    <meta
+      name="description"
+      content="Contact Thika Art Collective Studio in Thika, Kenya. Buy work, volunteer your skills, donate material or funds, or arrange a school visit."
+    />
+    <meta property="og:title" content="Contact and Get Involved | Thika Art Collective Studio" />
+    <meta
+      property="og:description"
+      content="Buy work, volunteer, donate material or funds, or arrange a visit to the studio in Thika."
+    />
+  </head>
+
+  <body>
+    <!-- include: partials/header.html -->
+
+    <main id="main">
+      <section class="hero" data-hero style="padding-block: clamp(2.5rem, 6vw, 5rem) clamp(2.5rem, 5vw, 4rem);">
+        <div class="wrap">
+          <p class="eyebrow" data-hero-fade>Contact and get involved</p>
+          <h1 class="hero__title" style="font-size: var(--step-4); max-width: 18ch;">
+            <span class="line" data-hero-line><span>Come by,</span></span>
+            <span class="line" data-hero-line><span>send material,</span></span>
+            <span class="line" data-hero-line><span><em>or buy a piece.</em></span></span>
+          </h1>
+          <p class="hero__lede" data-hero-fade>
+            The studio reads everything that comes through this form. Tell us which of the three you
+            are, and someone will reply.
+          </p>
+        </div>
+      </section>
+
+      <!-- ------------------------------------------------------- get involved -->
+      <section class="section section--tight edge-top" style="background: var(--paper-deep);">
+        <div class="wrap">
+          <h2 class="visually-hidden">Ways to get involved</h2>
+          <div class="grid grid--3">
+            <div class="involve" data-reveal>
+              <h3>Buyers and collectors</h3>
+              <p>
+                Ask about any piece in the gallery, or brief a commission. Dimensions, condition notes
+                and prices are sent by return. The larger share of every sale goes to the maker.
+              </p>
+              <p style="margin-top: 1.1rem;">
+                <a class="link-arrow" href="#contact-form">Enquire <span aria-hidden="true">&rarr;</span></a>
+              </p>
+            </div>
+
+            <div class="involve" data-reveal>
+              <h3>Volunteers and mentors</h3>
+              <p>
+                Photography, welding, framing, bookkeeping, teaching, driving a collection route. Half
+                a day a month is genuinely useful here.
+              </p>
+              <p style="margin-top: 1.1rem;">
+                <a class="link-arrow" href="#contact-form">Offer time <span aria-hidden="true">&rarr;</span></a>
+              </p>
+            </div>
+
+            <div class="involve" data-reveal>
+              <h3>Donors and partners</h3>
+              <p>
+                Funds cover tools, rent and paid mentor hours. Material donations are just as welcome,
+                and businesses can send offcuts on a standing arrangement.
+              </p>
+              <p style="margin-top: 1.1rem;">
+                <a class="link-arrow" href="#contact-form">Support the studio <span aria-hidden="true">&rarr;</span></a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- --------------------------------------------------------------- form -->
+      <section class="section" id="contact-form">
+        <div class="wrap split split--wide-left">
+          <div data-reveal>
+            <p class="eyebrow">Send a message</p>
+            <h2>Tell the studio what you need.</h2>
+
+            <!--
+              Netlify Forms markup. On the production host this posts without
+              JavaScript. The script upgrades it to a background submit and
+              falls back to the studio email address if the endpoint is not
+              reachable.
+            -->
+            <form
+              class="form"
+              name="contact"
+              method="POST"
+              action="/"
+              data-netlify="true"
+              netlify-honeypot="company"
+              data-contact-form
+              novalidate
+            >
+              <input type="hidden" name="form-name" value="contact" />
+
+              <p class="honey" aria-hidden="true">
+                <label>Leave this field empty <input name="company" tabindex="-1" autocomplete="off" /></label>
+              </p>
+
+              <div class="field">
+                <label for="name">Your name</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  autocomplete="name"
+                  required
+                  data-message="Please tell us your name."
+                />
+                <p class="field__error" data-error-for="name"></p>
+              </div>
+
+              <div class="field">
+                <label for="email">Email</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                  data-message="Please enter an email address we can reply to."
+                />
+                <p class="field__error" data-error-for="email"></p>
+              </div>
+
+              <div class="field">
+                <label for="reason">I am getting in touch as</label>
+                <select id="reason" name="reason" required data-message="Please choose one.">
+                  <option value="">Choose one</option>
+                  <option value="buyer">A buyer or collector</option>
+                  <option value="commission">Someone with a commission</option>
+                  <option value="volunteer">A volunteer or mentor</option>
+                  <option value="donor">A donor or partner</option>
+                  <option value="material">Someone with material to donate</option>
+                  <option value="visit">A school or group wanting a visit</option>
+                  <option value="artist">An artist who wants to join</option>
+                </select>
+                <p class="field__error" data-error-for="reason"></p>
+              </div>
+
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  minlength="10"
+                  data-message="A sentence or two is plenty, but we need something to go on."
+                ></textarea>
+                <p class="field__error" data-error-for="message"></p>
+              </div>
+
+              <p class="form-status" data-form-status hidden></p>
+
+              <div class="btn-row">
+                <button class="btn" type="submit">Send message</button>
+                <span class="form-note">We reply within a few days. No mailing list, no sharing your details.</span>
+              </div>
+            </form>
+          </div>
+
+          <!-- ------------------------------------------------------ details -->
+          <div data-reveal>
+            <!--
+              Placeholder contact details. Replace the address, email and phone
+              number with the studio's real ones before launch.
+            -->
+            <div class="info-block">
+              <h3>Studio</h3>
+              <p>
+                Thika, Kiambu County<br />
+                Kenya
+              </p>
+            </div>
+
+            <div class="info-block">
+              <h3>Open studio</h3>
+              <p>
+                Saturdays, 9am to 4pm.<br />
+                Weekdays by arrangement.
+              </p>
+            </div>
+
+            <div class="info-block">
+              <h3>Email</h3>
+              <p><a href="mailto:hello@thikaartcollective.org">hello@thikaartcollective.org</a></p>
+            </div>
+
+            <div class="info-block">
+              <h3>Phone</h3>
+              <p>+254 7XX XXX XXX</p>
+            </div>
+
+            <div class="info-block">
+              <h3>Follow</h3>
+              <p>
+                <a href="#" rel="me">Instagram</a>, <a href="#" rel="me">Facebook</a>,
+                <a href="#" rel="me">TikTok</a>
+              </p>
+            </div>
+
+            <p class="form-note">
+              Contact details on this page are placeholders until the studio confirms its final
+              address, phone number and social accounts.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- -------------------------------------------------------- material cta -->
+      <section class="section section--dark edge-top">
+        <div class="wrap">
+          <div class="section-head" data-reveal>
+            <p class="eyebrow">Material donations</p>
+            <h2>What the studio can always use</h2>
+            <p style="color: var(--ink-invert-soft);">
+              Clean, dry and in any quantity. If you are a business in Thika with a regular stream of
+              any of these, we will collect on a schedule.
+            </p>
+          </div>
+
+          <ul class="program__tags" data-reveal style="gap: 0.6rem;">
+            <li class="tag">Sheet metal and tins</li>
+            <li class="tag">Seed packets and labels</li>
+            <li class="tag">Sacks and packaging</li>
+            <li class="tag">Bottle tops</li>
+            <li class="tag">Timber offcuts and pallets</li>
+            <li class="tag">Fabric ends</li>
+            <li class="tag">Wire</li>
+            <li class="tag">Acrylic paint and brushes</li>
+            <li class="tag">Hand tools</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- include: partials/footer.html -->
+  </body>
+</html>

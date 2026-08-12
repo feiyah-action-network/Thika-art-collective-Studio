@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <rect width="64" height="64" fill="#f2e7d3"/>
+  <path d="M6 10l14 3 12-5 14 4 12-3v46l-13-3-12 4-14-4-13 3z" fill="#a6432b"/>
+  <text x="32" y="42" text-anchor="middle" font-family="Impact, Haettenschweiler, sans-serif" font-size="26" fill="#f2e7d3">TAC</text>
+</svg>

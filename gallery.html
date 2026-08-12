@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- include: partials/head.html -->
+    <title>Gallery | Thika Art Collective Studio</title>
+    <meta
+      name="description"
+      content="Work made at Thika Art Collective Studio from salvaged metal, packaging, paper, textile, plastic and timber. Filter the gallery by material or by program."
+    />
+    <meta property="og:title" content="Gallery | Thika Art Collective Studio" />
+    <meta
+      property="og:description"
+      content="Artwork made from salvaged metal, packaging, paper, textile, plastic and timber."
+    />
+  </head>
+
+  <body>
+    <!-- include: partials/header.html -->
+
+    <main id="main">
+      <section class="hero" data-hero style="padding-block: clamp(2.5rem, 6vw, 5rem) clamp(2.5rem, 5vw, 4rem);">
+        <div class="wrap">
+          <p class="eyebrow" data-hero-fade>Gallery</p>
+          <h1 class="hero__title" style="font-size: var(--step-4); max-width: 18ch;">
+            <span class="line" data-hero-line><span>Everything here</span></span>
+            <span class="line" data-hero-line><span><em>was thrown out.</em></span></span>
+          </h1>
+          <p class="hero__lede" data-hero-fade>
+            Fourteen recent pieces from the benches. Filter by the material they started as, or by
+            the program they came out of.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section--tight edge-top" style="background: var(--paper-deep);">
+        <div class="wrap">
+          <!-- The filter bar is revealed by script. Without it every piece is
+               listed, which is still a complete gallery. -->
+          <div class="filters" data-filters hidden>
+            <div class="filters__group">
+              <span class="filters__label" id="filter-material">Material</span>
+              <button class="chip" type="button" data-filter="material" data-value="all" aria-pressed="true">All</button>
+              <button class="chip" type="button" data-filter="material" data-value="metal" aria-pressed="false">Metal</button>
+              <button class="chip" type="button" data-filter="material" data-value="packaging" aria-pressed="false">Packaging</button>
+              <button class="chip" type="button" data-filter="material" data-value="paper" aria-pressed="false">Paper</button>
+              <button class="chip" type="button" data-filter="material" data-value="textile" aria-pressed="false">Textile</button>
+              <button class="chip" type="button" data-filter="material" data-value="plastic" aria-pressed="false">Plastic</button>
+              <button class="chip" type="button" data-filter="material" data-value="wood" aria-pressed="false">Wood</button>
+            </div>
+
+            <div class="filters__group" style="width: 100%;">
+              <span class="filters__label" id="filter-program">Program</span>
+              <button class="chip" type="button" data-filter="program" data-value="all" aria-pressed="true">All</button>
+              <button class="chip" type="button" data-filter="program" data-value="empowerment" aria-pressed="false">Empowerment</button>
+              <button class="chip" type="button" data-filter="program" data-value="recycling" aria-pressed="false">Recycling</button>
+              <button class="chip" type="button" data-filter="program" data-value="income" aria-pressed="false">Income</button>
+              <button class="chip" type="button" data-filter="program" data-value="mentorship" aria-pressed="false">Mentorship</button>
+              <button class="chip" type="button" data-filter="program" data-value="exhibitions" aria-pressed="false">Exhibitions</button>
+            </div>
+          </div>
+
+          <h2 class="visually-hidden">All work</h2>
+          <p class="visually-hidden" role="status" data-gallery-status></p>
+
+          <div class="gallery" data-gallery>
+            <figure class="gallery__item" data-material="packaging" data-program="income empowerment">
+              <img src="/images/gallery/piece-01.svg" alt="Boda at First Light, painted on a salvaged maize meal sack. Placeholder image." width="1200" height="900" loading="lazy" decoding="async" />
+              <figcaption class="gallery__caption">
+                <h3>Boda at First Light</h3>
+                <p>Painted maize meal sack, Brian Otieno</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="paper" data-program="recycling exhibitions">
+              <img src="/images/gallery/piece-02.svg" alt="Agrovet Madonna, a mosaic of seed packets. Placeholder image." width="1000" height="1000" loading="lazy" decoding="async" />
+              <figcaption class="gallery__caption">
+                <h3>Agrovet Madonna</h3>
+                <p>Seed packet mosaic, Faith Mueni</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="plastic" data-program="recycling mentorship">
+              <img src="/images/gallery/piece-03.svg" alt="Cap Field Number Four, built from bottle tops. Placeholder image." width="900" height="1200" loading="lazy" decoding="async" />
+              <figcaption class="gallery__caption">
+                <h3>Cap Field No. 4</h3>
+                <p>Bottle tops on board, Samuel Njoroge</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="metal" data-program="mentorship exhibitions">
+              <img src="/images/gallery/piece-04.svg" alt="Roofing Sheet Portrait, stitched metal panels. Placeholder image." width="1200" height="900" loading="lazy" decoding="async" />
+              <figcaption class="gallery__caption">
+                <h3>Roofing Sheet Portrait</h3>
+                <p>Stitched sheet metal, Naomi Wanjiru</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="packaging" data-program="income">
+              <img src="/images/gallery/piece-05.svg" alt="Sifted Grade One, painted packaging. Placeholder image." width="1000" height="1000" loading="lazy" decoding="async" />
+              <figcaption class="gallery__caption">
+                <h3>Sifted Grade One</h3>
+                <p>Acrylic on flour sack, Brian Otieno</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="wood" data-program="income mentorship">
+              <img src="/images/gallery/piece-06.svg" alt="Bench Stool in pallet timber. Placeholder image." width="900" height="1200" loading="lazy" decoding="async" />
+              <figcaption class="gallery__caption">
+                <h3>Bench Stool, Pallet Oak</h3>
+                <p>Reclaimed timber, Kevin Kimani</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="textile" data-program="empowerment">
+              <img src="/images/gallery/piece-07.svg" alt="Offcut Cascade, layered fabric ends. Placeholder image." width="1200" height="900" loading="lazy" decoding="async" />
+              <figcaption class="gallery__caption">
+                <h3>Offcut Cascade</h3>
+                <p>Tailoring offcuts, Aisha Hassan</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="metal" data-program="exhibitions">
+              <img src="/images/gallery/piece-08.svg" alt="Tin Mosaic Blue Hour, cut and stitched tins. Placeholder image." width="1000" height="1000" loading="lazy" decoding="async" />
+              <figcaption class="gallery__caption">
+                <h3>Tin Mosaic, Blue Hour</h3>
+                <p>Flattened tins, Naomi Wanjiru</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="paper" data-program="recycling empowerment">
+              <img src="/images/gallery/piece-09.svg" alt="Receipts One Month, a paper mosaic. Placeholder image." width="900" height="1200" loading="lazy" decoding="async" />
+              <figcaption class="gallery__caption">
+                <h3>Receipts, One Month</h3>
+                <p>Till roll and labels, Faith Mueni</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="packaging" data-program="income exhibitions">
+              <img src="/images/gallery/piece-10.svg" alt="Matatu Route 237, painted on packaging. Placeholder image." width="1200" height="900" loading="lazy" decoding="async" />
+              <figcaption class="gallery__caption">
+                <h3>Matatu Route 237</h3>
+                <p>Acrylic on snack wrapper, Brian Otieno</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="plastic metal" data-program="mentorship">
+              <img src="/images/gallery/piece-11.svg" alt="Wire and Cap Study. Placeholder image." width="1000" height="1000" loading="lazy" decoding="async" />
+              <figcaption class="gallery__caption">
+                <h3>Wire and Cap Study</h3>
+                <p>Caps, washers and wire, Samuel Njoroge</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="textile" data-program="empowerment income">
+              <img src="/images/gallery/piece-12.svg" alt="Tailor's Remnants, a soft sculpture panel. Placeholder image." width="900" height="1200" loading="lazy" decoding="async" />
+              <figcaption class="gallery__caption">
+                <h3>Tailor's Remnants</h3>
+                <p>Fabric ends on frame, Aisha Hassan</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="wood" data-program="recycling">
+              <img src="/images/gallery/piece-13.svg" alt="Demolition Grain, a carved timber panel. Placeholder image." width="1200" height="900" loading="lazy" decoding="async" />
+              <figcaption class="gallery__caption">
+                <h3>Demolition Grain</h3>
+                <p>Site timber, oiled, Kevin Kimani</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="paper" data-program="mentorship exhibitions">
+              <img src="/images/gallery/piece-14.svg" alt="Label Study in green, a paper mosaic. Placeholder image." width="1000" height="1000" loading="lazy" decoding="async" />
+              <figcaption class="gallery__caption">
+                <h3>Label Study, Green</h3>
+                <p>Sorted labels, Faith Mueni</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <p class="gallery-empty" data-gallery-empty hidden>
+            No pieces match that pair of filters yet. Try one filter at a time.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section--dark edge-top">
+        <div class="wrap split">
+          <div data-reveal>
+            <p class="eyebrow">Buying</p>
+            <h2>Most of these are available.</h2>
+            <p style="color: var(--ink-invert-soft);">
+              Prices depend on size and material, and the larger share of every sale goes to the
+              artist. Tell the studio which piece caught your eye and we will send dimensions,
+              condition notes and a price.
+            </p>
+            <p class="btn-row" style="margin-top: 1.75rem;">
+              <a class="btn" href="/contact.html">Enquire about a piece</a>
+              <a class="btn btn--ghost" href="/artists.html">Meet the makers</a>
+            </p>
+          </div>
+          <div data-reveal>
+            <blockquote class="pull-quote">
+              &ldquo;Every panel here has a date stamp on the back from the day the material arrived.&rdquo;
+              <cite>Studio archive</cite>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- include: partials/footer.html -->
+  </body>
+</html>
