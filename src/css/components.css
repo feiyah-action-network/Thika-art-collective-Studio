@@ -310,6 +310,21 @@ a:hover .link-arrow span { transform: translateX(6px); }
 
 .program:hover .program__media img { transform: scale(1.04) rotate(0.4deg); }
 
+/* Marks an image slot that is still waiting on a real photograph. */
+.media-note {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  background: var(--char);
+  color: var(--ink-invert);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.75rem;
+}
+
 .program__num {
   position: absolute;
   top: -0.2em;
@@ -453,6 +468,9 @@ a:hover .link-arrow span { transform: translateX(6px); }
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 
+/* display: flex would otherwise beat the hidden attribute. */
+.filters__group[hidden] { display: none; }
+
 .filters__group {
   display: flex;
   flex-wrap: wrap;
@@ -500,7 +518,8 @@ a:hover .link-arrow span { transform: translateX(6px); }
 
 .gallery__item {
   break-inside: avoid;
-  margin-bottom: var(--gap);
+  /* figure carries a default side margin that would inset every column. */
+  margin: 0 0 var(--gap);
   border: 2px solid var(--char);
   background: var(--paper);
   position: relative;

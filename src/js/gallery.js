@@ -8,13 +8,35 @@ export function initGallery() {
   const bar = document.querySelector('[data-filters]');
   if (!grid || !bar) return;
 
-  bar.hidden = false;
-
   const items = Array.from(grid.querySelectorAll('[data-material]'));
   const status = document.querySelector('[data-gallery-status]');
   const empty = document.querySelector('[data-gallery-empty]');
 
   const state = { material: 'all', program: 'all' };
+
+  /* Hide any chip nothing is tagged with, and drop a whole group when only its
+     "all" chip would be left. That keeps the bar honest as pieces are added:
+     the program filter reappears by itself once pieces carry program tags,
+     with no code change. */
+  function prune() {
+    bar.querySelectorAll('.filters__group').forEach((group) => {
+      let live = 0;
+
+      group.querySelectorAll('[data-filter]').forEach((chip) => {
+        const { filter, value } = chip.dataset;
+        if (value === 'all') return;
+        const used = items.some((item) => (item.dataset[filter] || '').split(' ').includes(value));
+        chip.hidden = !used;
+        if (used) live += 1;
+      });
+
+      group.hidden = live < 2;
+    });
+
+    bar.hidden = Array.from(bar.querySelectorAll('.filters__group')).every((g) => g.hidden);
+  }
+
+  prune();
 
   function apply() {
     let shown = 0;

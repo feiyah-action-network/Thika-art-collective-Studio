@@ -265,7 +265,4 @@ for (let i = 1; i <= 14; i += 1) {
   log.push(write(`public/images/gallery/piece-${String(i).padStart(2, '0')}.svg`, artwork(`piece-${i}`, w, h)));
 }
 
-log.push(write('public/images/hero-collage.svg', artwork('hero-collage', 1400, 1000)));
-log.push(write('public/images/studio-floor.svg', program('studio-floor')));
-
 console.log(log.join('\n'));
