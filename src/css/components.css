@@ -376,6 +376,22 @@ a:hover .link-arrow span { transform: translateX(6px); }
 
 .artist__media { position: relative; overflow: hidden; border-bottom: 2px solid var(--char); }
 
+/* Stands in for a portrait without pretending to be one. */
+.artist__media--initials {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5;
+  background: var(--tile, var(--metal));
+}
+
+.artist__initials {
+  font-family: var(--display);
+  font-size: clamp(3rem, 9vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: 0.06em;
+  color: var(--ink-invert);
+}
+
 .artist__media img {
   width: 100%;
   aspect-ratio: 4 / 5;
@@ -447,7 +463,7 @@ a:hover .link-arrow span { transform: translateX(6px); }
 
 .artist__works {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 0.5rem;
   margin-top: 1rem;
 }

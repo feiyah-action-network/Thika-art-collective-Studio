@@ -106,29 +106,30 @@ script with its crop and target width, run the script, then use the printed path
 
 ### Still generated placeholders
 
-`tools/make-placeholders.mjs` produces the remaining stand in artwork. Each file
-carries a small "placeholder" mark in the corner so none of them can be mistaken
-for real work.
+`tools/make-placeholders.mjs` now produces one file,
+`public/images/programs/mentorship.svg`, for the single program with no photograph
+yet. It carries a "placeholder" mark in its corner and a visible "Photograph
+pending" tag on the page.
 
-- `public/images/artists/*.svg` six portraits, plus their portfolio thumbnails on
-  the artists page. Real works are deliberately not used here, because that would
-  attribute them to placeholder names.
-- `public/images/programs/mentorship.svg` the one program with no photograph yet.
-  It carries a visible "Photograph pending" tag on the page.
-- `public/images/gallery/piece-*.svg` no longer used by the gallery, still used for
-  the artists page thumbnails.
+The artist portraits and gallery tiles this script used to generate are gone. The
+artists page uses initial tiles instead, which read as a deliberate stand in rather
+than a face that is not the person's. Earlier revisions are in the git history.
 
 ## Before launch
 
 The following are placeholders and need the studio's real details:
 
-- Artist names, biographies, stories and portraits in `artists.html`. The page
-  carries a visible note saying so, which should be removed once the real profiles
-  are in.
-- Gallery titles and attribution in `gallery.html`. The titles there are descriptive
-  stand ins written from the photographs, and materials are read off the images.
-  Two pieces are signed Bull, which is transcribed from the signature and needs
-  confirming against the artist's full name.
+- Artist portraits, mediums and biographies in `artists.html`. The five names are
+  the studio's real ones. Nothing is written on their behalf, so each card shows an
+  initial tile, a "Medium to be confirmed" line and a profile panel saying what is
+  still being collected. Fill those in per artist and drop the note above the grid.
+- Gallery titles in `gallery.html`, which are descriptive stand ins written from the
+  photographs, and materials, which are read off the images. The two sack paintings
+  are attributed to Dennis Bull Ndegwa on the strength of the Bull signature they
+  carry, which is worth confirming with him.
+- All body copy is a draft for the studio to approve. The three pull quotes on the
+  home, programs and gallery pages are illustrative lines, not anything anyone
+  actually said, so either replace them with real quotations or cut them.
 - Program tags on gallery pieces. Nothing is tagged yet, so the program filter hides
   itself. Add `data-program` values to the figures and it reappears with no code
   change.
