@@ -48,7 +48,8 @@ export default defineConfig({
         programs: page('programs.html'),
         artists: page('artists.html'),
         gallery: page('gallery.html'),
-        contact: page('contact.html')
+        contact: page('contact.html'),
+        notFound: page('404.html')
       }
     }
   },

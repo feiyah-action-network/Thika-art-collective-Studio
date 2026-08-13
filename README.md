@@ -13,6 +13,8 @@ npm install
 npm run dev        # local dev server
 npm run build      # production build into dist/
 npm run preview    # serve the built site
+npm test           # build, check assets, then run the browser checks
+npm run test:assets    # the static half on its own, no browser needed
 npm run placeholders   # regenerate the generated placeholder images
 ```
 
@@ -58,12 +60,14 @@ pulled 594 kB and took 14s to finish loading on Slow 3G.
 
 ```
 index.html  vision.html  programs.html  artists.html  gallery.html  contact.html
+404.html        not found page, picked up automatically by Netlify
 partials/       head, header and footer, inlined at build time
 src/css/        tokens, layout, components
 src/js/         main entry, motion, gallery filter, contact form
 public/images/  studio photographs plus the remaining generated placeholders
 public/fonts/   Anton and Work Sans, latin subset
 tools/          photo processing and placeholder generation
+tests/          asset check, browser checks, and the runner that serves dist
 ```
 
 `partials/` are pulled in by a small Vite plugin in `vite.config.js` using
@@ -152,6 +156,32 @@ studio email address rather than silently dropping the message.
 
 On a host other than Netlify, point the form `action` at whatever handler you use. The
 fallback path means nothing is lost in the meantime.
+
+## Tests
+
+```bash
+npm test
+```
+
+That builds, runs the static check, serves `dist`, and then runs the browser
+checks, in that order. It exits non zero on the first failure. CI runs the same
+thing on every push.
+
+`tests/check-assets.mjs` is the static half. It walks the built HTML and fails if
+a page references an image, stylesheet or internal link that is not in `dist`, if
+a page lost its header or footer partial or its meta description, if an include
+was left unresolved, or if any copy has picked up an em dash. It needs no browser,
+so it still runs when the browser half cannot.
+
+`tests/site.mjs` is the browser half, and it covers the behaviour the markup
+cannot show on its own: the site rendering completely with JavaScript disabled on
+both desktop and mobile, the gallery filter pruning categories nothing is tagged
+with, the contact form validating and then handling both a working and an
+unreachable endpoint, the mobile navigation, reduced motion skipping the animation
+download entirely, and per page heading order, alt text and image sizing.
+
+Playwright resolves its own Chromium. If you have one somewhere else, point
+`CHROMIUM_PATH` at the binary.
 
 ## Deploying
 
