@@ -1,0 +1,37 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # Netlify installs devDependencies before building. Playwright is only needed
+  # by the test suite, so stop its postinstall pulling a browser into the build.
+  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = "1"
+
+# Long cache for fingerprinted bundles, fonts and images.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # LAUNCH STEP: delete this line to let the site be indexed. It is here so
+    # search engines do not cache placeholder artist profiles or the stand in
+    # phone number and email while the studio is still filling those in.
+    # robots.txt deliberately still allows crawling, because a crawler has to
+    # fetch the page to see this header at all.
+    X-Robots-Tag = "noindex"

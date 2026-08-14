@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- include: partials/head.html -->
+    <title>Gallery | Thika Art Collective Studio</title>
+    <meta
+      name="description"
+      content="Work made at Thika Art Collective Studio from salvaged metal, packaging, paper, textile, plastic and timber. Filter the gallery by material or by program."
+    />
+    <meta property="og:title" content="Gallery | Thika Art Collective Studio" />
+    <meta
+      property="og:description"
+      content="Artwork made from salvaged metal, packaging, paper, textile, plastic and timber."
+    />
+  </head>
+
+  <body>
+    <!-- include: partials/header.html -->
+
+    <main id="main">
+      <section class="hero" data-hero style="padding-block: clamp(2.5rem, 6vw, 5rem) clamp(2.5rem, 5vw, 4rem);">
+        <div class="wrap">
+          <p class="eyebrow" data-hero-fade>Gallery</p>
+          <h1 class="hero__title" style="font-size: var(--step-4); max-width: 18ch;">
+            <span class="line" data-hero-line><span>Most of this</span></span>
+            <span class="line" data-hero-line><span><em>was thrown out first.</em></span></span>
+          </h1>
+          <p class="hero__lede" data-hero-fade>
+            Recent work photographed at the studio, most of it painted or stitched onto salvaged
+            packaging, some of it straight onto canvas. Filter by material. More are added here as
+            work is documented.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section--tight edge-top" style="background: var(--paper-deep);">
+        <div class="wrap">
+          <!-- The filter bar is revealed by script. Without it every piece is
+               listed, which is still a complete gallery. -->
+          <div class="filters" data-filters hidden>
+            <div class="filters__group">
+              <span class="filters__label" id="filter-material">Material</span>
+              <button class="chip" type="button" data-filter="material" data-value="all" aria-pressed="true">All</button>
+              <button class="chip" type="button" data-filter="material" data-value="metal" aria-pressed="false">Metal</button>
+              <button class="chip" type="button" data-filter="material" data-value="packaging" aria-pressed="false">Packaging</button>
+              <button class="chip" type="button" data-filter="material" data-value="paper" aria-pressed="false">Paper</button>
+              <button class="chip" type="button" data-filter="material" data-value="textile" aria-pressed="false">Textile</button>
+              <button class="chip" type="button" data-filter="material" data-value="plastic" aria-pressed="false">Plastic</button>
+              <button class="chip" type="button" data-filter="material" data-value="wood" aria-pressed="false">Wood</button>
+              <button class="chip" type="button" data-filter="material" data-value="cardboard" aria-pressed="false">Cardboard</button>
+              <button class="chip" type="button" data-filter="material" data-value="canvas" aria-pressed="false">Canvas</button>
+            </div>
+
+            <div class="filters__group" style="width: 100%;">
+              <span class="filters__label" id="filter-program">Program</span>
+              <button class="chip" type="button" data-filter="program" data-value="all" aria-pressed="true">All</button>
+              <button class="chip" type="button" data-filter="program" data-value="empowerment" aria-pressed="false">Empowerment</button>
+              <button class="chip" type="button" data-filter="program" data-value="recycling" aria-pressed="false">Recycling</button>
+              <button class="chip" type="button" data-filter="program" data-value="income" aria-pressed="false">Income</button>
+              <button class="chip" type="button" data-filter="program" data-value="mentorship" aria-pressed="false">Mentorship</button>
+              <button class="chip" type="button" data-filter="program" data-value="exhibitions" aria-pressed="false">Exhibitions</button>
+            </div>
+          </div>
+
+          <h2 class="visually-hidden">All work</h2>
+          <!--
+            Titles below are descriptive stand ins and materials are read from
+            the photographs. Replace both with the studio's own wording, and add
+            data-program tags to bring the program filter back automatically.
+          -->
+          <p class="form-note" data-reveal style="margin-bottom: 1.75rem;">
+            The three sack paintings signed Bull are attributed on that basis. Titles are
+            descriptive stand ins and materials are described from the photographs, both pending the
+            studio's own wording.
+          </p>
+          <p class="visually-hidden" role="status" data-gallery-status></p>
+
+          <div class="gallery" data-gallery>
+            <figure class="gallery__item" data-material="packaging" data-program="">
+              <img
+                src="/images/gallery/rider-red-bike.webp"
+                srcset="/images/gallery/rider-red-bike-550.webp 550w, /images/gallery/rider-red-bike.webp 1100w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A boda rider in a dark jacket on a red motorcycle, painted onto a flattened Soko maize meal sack, the printed branding showing through behind him"
+                width="1100"
+                height="923"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Rider on a red bike</h3>
+                <p>Acrylic on a Soko maize meal sack. Dennis Bull Ndegwa.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="paper metal textile" data-program="">
+              <img
+                src="/images/gallery/seed-packet-portrait.webp"
+                srcset="/images/gallery/seed-packet-portrait-450.webp 450w, /images/gallery/seed-packet-portrait.webp 900w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A stitched portrait with a crown of green seed packets, a face cut from scorched sheet metal and a deep red fabric dress"
+                width="900"
+                height="1274"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Seed packet crown</h3>
+                <p>Seed packets, scorched sheet metal and fabric, machine stitched.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="packaging" data-program="">
+              <img
+                src="/images/gallery/rider-with-cargo.webp"
+                srcset="/images/gallery/rider-with-cargo-550.webp 550w, /images/gallery/rider-with-cargo.webp 1100w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A rider carrying stacked cardboard boxes strapped to a motorcycle, painted onto a Soko maize meal sack"
+                width="1100"
+                height="769"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Rider carrying cargo</h3>
+                <p>Acrylic on a Soko maize meal sack. Dennis Bull Ndegwa.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="plastic packaging metal" data-program="">
+              <img
+                src="/images/gallery/bottle-top-portrait.webp"
+                srcset="/images/gallery/bottle-top-portrait-450.webp 450w, /images/gallery/bottle-top-portrait.webp 900w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A portrait whose hair is a dense field of patterned bottle top sheet, with features cut from printed packaging and foil"
+                width="900"
+                height="1320"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Bottle top field</h3>
+                <p>Patterned bottle top sheet, cut packaging and foil, machine stitched.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="packaging" data-program="">
+              <img
+                src="/images/gallery/matatu-on-gala-sack.webp"
+                srcset="/images/gallery/matatu-on-gala-sack-550.webp 550w, /images/gallery/matatu-on-gala-sack.webp 1100w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A matatu painted across a flattened Gala maize meal sack, passengers at every window and the word Khaleesi lettered along the bodywork"
+                width="1100"
+                height="725"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Matatu on a Gala sack</h3>
+                <p>Acrylic on a Gala maize meal sack.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="canvas" data-program="">
+              <img
+                src="/images/gallery/shields-and-fire.webp"
+                srcset="/images/gallery/shields-and-fire-600.webp 600w, /images/gallery/shields-and-fire.webp 1200w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A crowded painting of a street confrontation. Helmeted figures with riot shields and batons fill the left, mouths open mid shout, flames run across the centre, a hand holds up a Bible, and a child in school uniform runs at the right"
+                width="1200"
+                height="936"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Shields and fire</h3>
+                <p>Acrylic on canvas.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard canvas plastic" data-program="">
+              <img
+                src="/images/gallery/veiled-figure.webp"
+                srcset="/images/gallery/veiled-figure-500.webp 500w, /images/gallery/veiled-figure.webp 1000w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A veiled figure in deep blue with a beaded headdress, cut from corrugated cardboard and set against a poured black and white ground crossed by a single orange band"
+                width="1000"
+                height="1005"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Veiled figure</h3>
+                <p>Corrugated cardboard, beadwork and poured paint on canvas.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="packaging" data-program="">
+              <img
+                src="/images/gallery/carrying-firewood.webp"
+                srcset="/images/gallery/carrying-firewood-600.webp 600w, /images/gallery/carrying-firewood.webp 1200w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="Three figures walking in line, each balancing a large bundle of firewood on their head, painted across a flattened Soko maize meal sack"
+                width="1200"
+                height="578"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Carrying firewood</h3>
+                <p>Acrylic on a Soko maize meal sack. Dennis Bull Ndegwa.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="metal packaging" data-program="">
+              <img
+                src="/images/gallery/tomato-paste-crown.webp"
+                srcset="/images/gallery/tomato-paste-crown-450.webp 450w, /images/gallery/tomato-paste-crown.webp 900w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A stitched portrait on a dark teal ground, the face cut from warm sheet metal and the hair built from a grid of flattened Zesta tomato paste labels"
+                width="900"
+                height="736"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Tomato paste crown</h3>
+                <p>Flattened tin labels and sheet metal, machine stitched.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="metal" data-program="">
+              <img
+                src="/images/gallery/stitched-profile.webp"
+                srcset="/images/gallery/stitched-profile-550.webp 550w, /images/gallery/stitched-profile.webp 1100w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A reclining figure with eyes closed, built from scorched and mottled panels stitched together over a pale backing sheet"
+                width="1100"
+                height="770"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Stitched profile</h3>
+                <p>Scorched panels on a sheet ground, machine stitched.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard canvas" data-program="">
+              <img
+                src="/images/gallery/potter-in-blue.webp"
+                srcset="/images/gallery/potter-in-blue-500.webp 500w, /images/gallery/potter-in-blue.webp 1000w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A potter in a blue shirt carrying two patterned clay vessels, painted on corrugated cardboard set into a ground of poured yellow, black and white paint with red bands"
+                width="1000"
+                height="770"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Potter in blue</h3>
+                <p>Corrugated cardboard and poured paint on canvas.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="canvas" data-program="">
+              <img
+                src="/images/gallery/asleep-on-the-grass.webp"
+                srcset="/images/gallery/asleep-on-the-grass-600.webp 600w, /images/gallery/asleep-on-the-grass.webp 1200w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A figure lying asleep on swirling green grass in a white vest, a small toy bear tucked against their back and daisies scattered around them"
+                width="1200"
+                height="1344"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Asleep on the grass</h3>
+                <p>Oil on canvas.</p>
+              </figcaption>
+            </figure>
+          </div>
+
+          <p class="gallery-empty" data-gallery-empty hidden>
+            No pieces match that pair of filters yet. Try one filter at a time.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section--dark edge-top">
+        <div class="wrap split">
+          <div data-reveal>
+            <p class="eyebrow">Buying</p>
+            <h2>Most of these are available.</h2>
+            <p style="color: var(--ink-invert-soft);">
+              Prices depend on size and material, and the larger share of every sale goes to the
+              artist. Tell the studio which piece caught your eye and we will send dimensions,
+              condition notes and a price.
+            </p>
+            <p class="btn-row" style="margin-top: 1.75rem;">
+              <a class="btn" href="/contact.html">Enquire about a piece</a>
+              <a class="btn btn--ghost" href="/artists.html">Meet the makers</a>
+            </p>
+          </div>
+          <div data-reveal>
+            <p class="pull-quote">
+              Sacks, packets, tins, cardboard, and when the work calls for it, canvas.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- include: partials/footer.html -->
+  </body>
+</html>
