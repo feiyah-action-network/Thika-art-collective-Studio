@@ -187,9 +187,37 @@ Playwright resolves its own Chromium. If you have one somewhere else, point
 
 ## Deploying
 
-`netlify.toml` is set up for Netlify: build with `npm run build`, publish `dist`, with
-long cache headers on fingerprinted assets and fonts. Any static host works, the build
-output is plain files.
+Live at https://thika-art-collective.netlify.app on the FEIYAH team. Project
+`thika-art-collective`, site id `1882539e-2cd7-406c-9f7f-5d13d7cc4ea5`.
+
+`netlify.toml` drives it: build with `npm run build`, publish `dist`, long cache
+headers on fingerprinted assets and fonts, and the noindex header described above.
+Any static host works, the build output is plain files.
+
+### Continuous deployment
+
+The first deploy was pushed from a working copy, so the project is not yet linked to
+GitHub. To link it, in the Netlify UI open the project, go to Project configuration,
+Build and deploy, Link repository, and pick `feiyahactionnetwork/Thika-art-collective-Studio`.
+Netlify reads the build command and publish directory from `netlify.toml`, so nothing
+needs typing. Set the production branch to `main` once this work is merged, otherwise
+set it to the branch you want live.
+
+### Custom domain
+
+Once the domain is bought, add it under Domain management in the project, then either
+delegate the nameservers to Netlify or add the records the UI shows at your registrar.
+Netlify issues the certificate automatically, usually within a few minutes of DNS
+resolving. Two things in the repo want the final domain:
+
+- the Open Graph image path in `partials/head.html`, which should become absolute
+- a `sitemap.xml`, which needs absolute URLs and so was not worth adding before now
+
+### Forms
+
+Form detection is enabled on the project and the contact form is registered, so
+submissions land in the Netlify UI under Forms. Nothing sends them onward yet: add a
+notification under Forms, notifications, to have them emailed to the studio.
 
 ## Accessibility
 
