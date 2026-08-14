@@ -107,6 +107,34 @@ const JOBS = [
     crop: { left: 0.165, top: 0.19, width: 0.5, height: 0.55 },
     width: 900,
     note: 'Portrait on a patterned bottle top field, cut packaging features'
+  },
+  {
+    file: '164586a8-IMG_0646.jpeg',
+    out: 'public/images/gallery/matatu-on-gala-sack.webp',
+    crop: { left: 0.13, top: 0.22, width: 0.84, height: 0.415 },
+    width: 1100,
+    note: 'A matatu painted across a flattened Gala maize meal sack'
+  },
+  {
+    file: '43f1b0d9-IMG_0636.jpeg',
+    out: 'public/images/gallery/shields-and-fire.webp',
+    crop: { left: 0.05, top: 0.02, width: 0.94, height: 0.55 },
+    width: 1200,
+    note: 'Painting on canvas, riot shields, flames and a fleeing figure'
+  },
+  {
+    file: '8d30568c-IMG_0669.jpeg',
+    out: 'public/images/gallery/veiled-figure.webp',
+    crop: { left: 0.02, top: 0.11, width: 0.77, height: 0.58 },
+    width: 1000,
+    note: 'Cardboard cut figure over a poured black and white ground'
+  },
+  {
+    file: '9770759d-IMG_0660.jpeg',
+    out: 'public/images/gallery/carrying-firewood.webp',
+    crop: { left: 0.16, top: 0.39, width: 0.83, height: 0.3 },
+    width: 1200,
+    note: 'Three figures carrying firewood, on a Soko sack, signed Bull'
   }
 ];
 
