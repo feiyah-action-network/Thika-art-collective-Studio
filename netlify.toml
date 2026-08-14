@@ -4,6 +4,9 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  # Netlify installs devDependencies before building. Playwright is only needed
+  # by the test suite, so stop its postinstall pulling a browser into the build.
+  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = "1"
 
 # Long cache for fingerprinted bundles, fonts and images.
 [[headers]]
