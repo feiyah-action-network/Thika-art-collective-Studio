@@ -135,6 +135,34 @@ const JOBS = [
     crop: { left: 0.16, top: 0.39, width: 0.83, height: 0.3 },
     width: 1200,
     note: 'Three figures carrying firewood, on a Soko sack, signed Bull'
+  },
+  {
+    file: '411ffff5-IMG_0617.jpeg',
+    out: 'public/images/gallery/tomato-paste-crown.webp',
+    crop: { left: 0.2, top: 0.13, width: 0.585, height: 0.365 },
+    width: 900,
+    note: 'Stitched portrait, hair made from flattened tomato paste tin labels'
+  },
+  {
+    file: 'a769a1c4-IMG_0621.jpeg',
+    out: 'public/images/gallery/stitched-profile.webp',
+    crop: { left: 0.13, top: 0.1, width: 0.8, height: 0.42 },
+    width: 1100,
+    note: 'Reclining figure in scorched stitched panels on a pale ground'
+  },
+  {
+    file: 'bc4b35cf-IMG_0627.jpeg',
+    out: 'public/images/gallery/potter-in-blue.webp',
+    crop: { left: 0.13, top: 0.26, width: 0.695, height: 0.41 },
+    width: 1000,
+    note: 'Potter with clay vessels, cardboard over poured paint'
+  },
+  {
+    file: 'f428f283-IMG_0624.jpeg',
+    out: 'public/images/gallery/asleep-on-the-grass.webp',
+    crop: { left: 0.205, top: 0.115, width: 0.625, height: 0.525 },
+    width: 1200,
+    note: 'Figure asleep on swirling green grass with a toy bear'
   }
 ];
 
