@@ -138,7 +138,7 @@ The following are placeholders and need the studio's real details:
   itself. Add `data-program` values to the figures and it reappears with no code
   change.
 - A photograph for the mentorship program.
-- Email address `hello@thikaartcollective.org`, used in `partials/footer.html`,
+- Email address `hello@thikaartcollective.co.ke`, used in `partials/footer.html`,
   `contact.html` and the fallback message in `src/js/form.js`.
 - Phone number and street address in `contact.html`.
 - Social links, currently `#`, in `partials/footer.html` and `contact.html`.

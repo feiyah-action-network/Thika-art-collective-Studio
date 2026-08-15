@@ -74,6 +74,27 @@ for (const page of pages) {
   if (html.includes('—')) failures.push(`${name} contains an em dash`);
 }
 
+/* The site answers on two hostnames, so every indexable page has to say which
+   one is canonical, and the sitemap has to exist for robots.txt to point at. */
+const SITE_URL = 'https://thikaartcollective.co.ke';
+for (const page of pages) {
+  const html = readFileSync(page, 'utf8');
+  const name = page.replace(dist + '/', '');
+  const is404 = name === '404.html';
+
+  if (is404) {
+    if (!/<meta[^>]*name="robots"[^>]*noindex/s.test(html)) failures.push(`${name} should be noindex`);
+  } else if (!html.includes(`rel="canonical" href="${SITE_URL}`)) {
+    failures.push(`${name} has no canonical URL`);
+  }
+
+  if (html.includes('content="/images/share-card.jpg"')) {
+    failures.push(`${name} has a site relative Open Graph image, which some scrapers reject`);
+  }
+}
+
+if (!existsSync(join(dist, 'sitemap.xml'))) failures.push('sitemap.xml was not generated');
+
 /* Nothing should point at the invented names the early draft used. */
 const RETIRED = /Naomi Wanjiru|Brian Otieno|Faith Mueni|Kevin Kimani|Aisha Hassan|Samuel Njoroge/;
 for (const page of pages) {

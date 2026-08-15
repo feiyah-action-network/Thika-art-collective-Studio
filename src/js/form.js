@@ -74,7 +74,7 @@ export function initForm() {
       show('Thank you. Your message is with the studio and someone will reply soon.', 'ok');
     } catch (error) {
       show(
-        'The form could not be sent from this device. Please email hello@thikaartcollective.org and we will pick it up from there.',
+        'The form could not be sent from this device. Please email hello@thikaartcollective.co.ke and we will pick it up from there.',
         'error'
       );
     } finally {
