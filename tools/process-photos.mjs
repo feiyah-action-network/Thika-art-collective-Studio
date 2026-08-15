@@ -163,6 +163,57 @@ const JOBS = [
     crop: { left: 0.205, top: 0.115, width: 0.625, height: 0.525 },
     width: 1200,
     note: 'Figure asleep on swirling green grass with a toy bear'
+  },
+  {
+    file: '1c68730a-IMG_0631.jpeg',
+    out: 'public/images/gallery/pink-relief.webp',
+    crop: { left: 0.02, top: 0.005, width: 0.955, height: 0.84 },
+    width: 1100,
+    note: 'Metal figures set into torn corrugated cardboard on a pink ground'
+  },
+  {
+    file: '6bb38294-IMG_0619.jpeg',
+    out: 'public/images/gallery/label-hair-on-blue.webp',
+    crop: { left: 0.195, top: 0.165, width: 0.475, height: 0.63 },
+    width: 900,
+    note: 'Stitched figure in maroon leather, hair from bleached tin labels, blue ground'
+  },
+  {
+    file: '7c2bf47d-IMG_0613.jpeg',
+    out: 'public/images/gallery/brass-rosettes.webp',
+    crop: { left: 0.21, top: 0.2, width: 0.57, height: 0.5 },
+    width: 1000,
+    note: 'Face in scorched panels on black leather, brass rosettes and polish labels'
+  },
+  {
+    file: 'db69ae0a-IMG_0623.jpeg',
+    out: 'public/images/gallery/two-in-white.webp',
+    crop: { left: 0.19, top: 0.1, width: 0.545, height: 0.51 },
+    width: 1100,
+    note: 'Two figures in white against a deep blue swirl, oil on canvas'
+  },
+
+  /* Context photographs, used to fill image slots that had none. */
+  {
+    file: '411ffff5-IMG_0617.jpeg',
+    out: 'public/images/programs/mentorship.webp',
+    crop: { left: 0, top: 0.1, width: 1, height: 0.45 },
+    width: 1200,
+    note: 'Two people working in the studio with a finished panel between them'
+  },
+  {
+    file: '6bb38294-IMG_0619.jpeg',
+    out: 'public/images/studio/studio-room.webp',
+    crop: { left: 0, top: 0.14, width: 1, height: 0.55 },
+    width: 1200,
+    note: 'The studio room, work propped along the wall'
+  },
+  {
+    file: '7c2bf47d-IMG_0613.jpeg',
+    out: 'public/images/studio/wall-of-work.webp',
+    crop: { left: 0, top: 0.17, width: 1, height: 0.56 },
+    width: 1400,
+    note: 'Stitched panels hung and stacked along the studio wall'
   }
 ];
 
