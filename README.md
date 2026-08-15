@@ -146,8 +146,9 @@ The following are placeholders and need the studio's real details:
   want an absolute URL, so prefix it with the live domain once that is known.
 - The contact page carries a visible note about the placeholder details. Remove it
   once they are real.
-- `X-Robots-Tag = "noindex"` in `netlify.toml` keeps the site out of search results
-  while the placeholders above are still on it. Delete that line to launch.
+- The site is indexable as of the launch on 2026 08 14. If anything above is still a
+  placeholder when search engines crawl, it will be cached that way, so the contact
+  details are the urgent ones.
 
 ## The contact form
 
