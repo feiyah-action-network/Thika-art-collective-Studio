@@ -10,7 +10,6 @@
     "preview": "vite preview",
     "test": "node tests/run.mjs",
     "test:assets": "node tests/check-assets.mjs",
-    "placeholders": "node tools/make-placeholders.mjs",
     "photos": "node tools/process-photos.mjs"
   },
   "dependencies": {
