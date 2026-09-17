@@ -253,8 +253,13 @@ cache headers on fingerprinted assets and fonts. Any static host works, the buil
 output is plain files.
 
 Mail is on Zoho. DNS lives in Netlify DNS and carries the three Zoho MX records,
-an SPF record and a DMARC policy of `p=none`. DKIM is not set up yet, so outbound
-mail is unsigned.
+an SPF record, a DKIM key on the selector `art`, and a DMARC policy of `p=none`
+reporting to the studio. Outbound mail is signed.
+
+The DKIM key is 1024 bit, which is what Zoho issues by default. RFC 8301 asks for
+2048, and every major receiver still accepts 1024, so this is worth upgrading at
+some point but is not urgent. Rotating it means generating a new key in Zoho and
+replacing the `art._domainkey` TXT record.
 
 ### Continuous deployment
 
