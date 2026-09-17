@@ -113,6 +113,55 @@ const browser = await chromium.launch(launch);
   await page.waitForTimeout(200);
   check('reset restores every piece', (await page.locator('.gallery__item:not([hidden])').count()) === total);
 
+  /* The groups come from the markup rather than the script, so a second group
+     has to work the same way, and two of them have to narrow together rather
+     than one replacing the other. */
+  const artist = await page.evaluate(
+    () => document.querySelector('[data-filter="artist"]:not([data-value="all"])')?.dataset.value ?? null
+  );
+
+  if (artist) {
+    const expectedByArtist = await page.evaluate(
+      (a) => [...document.querySelectorAll('[data-artist]')].filter((i) => i.dataset.artist === a).length,
+      artist
+    );
+    await page.locator(`[data-filter="artist"][data-value="${artist}"]`).click();
+    await page.waitForTimeout(200);
+    const byArtist = await page.locator('.gallery__item:not([hidden])').count();
+    check(
+      `filtering by artist ${artist} narrows the grid`,
+      byArtist === expectedByArtist && byArtist > 0,
+      `shown=${byArtist} expected=${expectedByArtist}`
+    );
+
+    /* Pick a material that artist actually uses, otherwise the combination is
+       trivially empty and proves nothing. */
+    const shared = await page.evaluate(
+      (a) =>
+        [...document.querySelectorAll('[data-artist]')]
+          .filter((i) => i.dataset.artist === a)
+          .flatMap((i) => (i.dataset.material || '').split(' ').filter(Boolean))[0] ?? null,
+      artist
+    );
+    const expectedBoth = await page.evaluate(
+      ([a, m]) =>
+        [...document.querySelectorAll('[data-artist]')].filter(
+          (i) => i.dataset.artist === a && (i.dataset.material || '').split(' ').includes(m)
+        ).length,
+      [artist, shared]
+    );
+    await page.locator(`[data-filter="material"][data-value="${shared}"]`).click();
+    await page.waitForTimeout(200);
+    const both = await page.locator('.gallery__item:not([hidden])').count();
+    check(
+      `artist ${artist} and material ${shared} narrow together`,
+      both === expectedBoth && both > 0 && both <= byArtist,
+      `shown=${both} expected=${expectedBoth} artistOnly=${byArtist}`
+    );
+  } else {
+    check('artist filter chips are present', false, 'no artist chips found');
+  }
+
   await page.close();
 }
 

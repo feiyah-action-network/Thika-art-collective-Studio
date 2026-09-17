@@ -1,5 +1,8 @@
 /**
- * Gallery filtering by material and by programme.
+ * Gallery filtering. The groups are whatever the markup declares, so adding a
+ * filter is a markup change and needs nothing here: a new group of chips with
+ * a data-filter name, and a matching data-<name> attribute on the pieces.
+ *
  * Without JavaScript the filter bar is hidden and every piece is shown, which
  * is a perfectly good gallery.
  */
@@ -12,7 +15,8 @@ export function initGallery() {
   const status = document.querySelector('[data-gallery-status]');
   const empty = document.querySelector('[data-gallery-empty]');
 
-  const state = { material: 'all', program: 'all' };
+  const groups = [...new Set(Array.from(bar.querySelectorAll('[data-filter]'), (c) => c.dataset.filter))];
+  const state = Object.fromEntries(groups.map((name) => [name, 'all']));
 
   /* Hide any chip nothing is tagged with, and drop a whole group when only its
      "all" chip would be left. That keeps the bar honest as pieces are added:
@@ -42,11 +46,10 @@ export function initGallery() {
     let shown = 0;
 
     items.forEach((item) => {
-      const materials = (item.dataset.material || '').split(' ');
-      const programs = (item.dataset.program || '').split(' ');
-      const match =
-        (state.material === 'all' || materials.includes(state.material)) &&
-        (state.program === 'all' || programs.includes(state.program));
+      const match = groups.every(
+        (name) =>
+          state[name] === 'all' || (item.dataset[name] || '').split(' ').includes(state[name])
+      );
 
       item.hidden = !match;
       if (match) shown += 1;

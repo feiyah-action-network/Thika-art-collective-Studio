@@ -56,6 +56,12 @@ Measured on the built site, throttled, 390px mobile viewport, home page:
 First paint does not wait on photographs. Before `srcset` was added the same page
 pulled 594 kB and took 14s to finish loading on Slow 3G.
 
+The gallery holds 48 pieces and is the heaviest page. On Slow 3G it still paints
+in 1.4s and transfers 359 kB, because only the 7 images near the viewport are
+fetched. The other 41 arrive as you scroll. Image quality is deliberately not
+traded down any further here: on a page whose entire purpose is showing
+artwork, a few kilobytes per image is the wrong saving.
+
 ## Structure
 
 ```
@@ -66,6 +72,7 @@ src/css/        tokens, layout, components
 src/js/         main entry, motion, gallery filter, contact form
 public/images/  studio photographs plus the remaining generated placeholders
 public/fonts/   Anton and Work Sans, latin subset
+source/         originals the studio supplied, kept so the crops can be rerun
 tools/          photo processing and placeholder generation
 tests/          asset check, browser checks, and the runner that serves dist
 ```
@@ -100,13 +107,44 @@ each image as a fraction of the frame, writes WebP at two widths, and prints the
 node tools/process-photos.mjs /path/to/original/photos
 ```
 
-Originals are not committed. Keep them somewhere safe, because the crops are
-reproducible only if the sources are.
+The loose studio photographs this script reads are not committed, so keep them
+somewhere safe: the crops are reproducible only if the sources are. The artist
+catalogue below is the exception. It arrived as two files rather than a folder of
+originals, it is the only record of the titles and dimensions, and it was already
+in the repository history, so it is kept in `source/` where the pipeline can find
+it. That costs about 14 MB on clone and buys a gallery that can be rebuilt from
+scratch.
 
 To add a photograph: put it with the originals, add an entry to `JOBS` in that
 script with its crop and target width, run the script, then use the printed path,
 `srcset` and intrinsic size in the markup. Keep `loading="lazy"` and
 `decoding="async"` on everything except the hero image.
+
+### The artist catalogue
+
+Daniel Kabiaru's work came as a Word export, one page per piece: the photograph
+above a printed caption giving title, medium, size and year, plus an exhibition
+history and a portrait. The page exports are useless as images, because each one
+is a Letter sheet with white margins and text baked in. The photographs are
+embedded in the PDF as ordinary JPEG streams, though, so the pipeline pulls those
+out instead and never rasterises a page:
+
+```bash
+node tools/process-catalogue.mjs           # reads source/catalogue-dan-kabiaru.pdf
+```
+
+It writes 33 works into `public/images/gallery` at two widths each, plus the
+portrait, and leaves the markup data in `tools/catalogue-output.json`.
+
+Most of the photographs are already tight on the work. The ones shot framed on a
+wall carry a hand read crop down to the board itself, recorded in the script as a
+fraction of the frame, so the gallery shows the work rather than the wall it was
+hanging on. Those crops were read off a labelled percentage grid rendered over
+each photograph. Two automatic detectors were tried first and both mis-cropped
+the wall-heavy shots, which is worth knowing before anyone tries again.
+
+Every title, medium, size and year in `WORKS` is transcribed from the caption the
+studio printed under that piece, including its spelling. Nothing is inferred.
 
 ### Still generated placeholders
 
@@ -123,14 +161,23 @@ than a face that is not the person's. Earlier revisions are in the git history.
 
 The following are placeholders and need the studio's real details:
 
-- Artist portraits, mediums and biographies in `artists.html`. The five names are
-  the studio's real ones. Nothing is written on their behalf, so each card shows an
-  initial tile, a "Medium to be confirmed" line and a profile panel saying what is
-  still being collected. Fill those in per artist and drop the note above the grid.
-- Gallery titles in `gallery.html`, which are descriptive stand ins written from the
-  photographs, and materials, which are read off the images. The two sack paintings
-  are attributed to Dennis Bull Ndegwa on the strength of the Bull signature they
-  carry, which is worth confirming with him.
+- Portraits, mediums and biographies for John Ruitha and Peter Ndirangu in
+  `artists.html`. Nothing is written on their behalf, so each card shows an initial
+  tile, a "Medium to be confirmed" line and a profile panel saying what is still
+  being collected. Daniel Kabiaru's card is filled in from the catalogue he
+  supplied, and Dennis Bull Ndegwa and George Kamiti have work images and a short
+  note but no portrait or biography yet.
+- Gallery titles for the 15 pieces that are not Daniel Kabiaru's. Those are
+  descriptive stand ins written from the photographs, with materials read off the
+  images. Kabiaru's 33 carry the studio's own titles, mediums, sizes and years. The
+  two sack paintings are attributed to Dennis Bull Ndegwa on the strength of the
+  Bull signature they carry, which is worth confirming with him.
+- "Veiled figure" in the gallery is unattributed, but it is cardboard, poured paint
+  and a hard band of colour, which is exactly Daniel Kabiaru's cardboard series. It
+  is not in his catalogue, so it has been left unattributed. Worth asking him.
+- `source/studio-group-photo.jpg` shows identifiable people and came in with the
+  catalogue upload. It is kept as a source and deliberately not published anywhere
+  on the site, because nobody here can confirm the people in it agreed to that.
 - All body copy is a draft for the studio to approve. The three pull quotes on the
   home, programs and gallery pages are illustrative lines, not anything anyone
   actually said, so either replace them with real quotations or cut them.
@@ -138,12 +185,8 @@ The following are placeholders and need the studio's real details:
   itself. Add `data-program` values to the figures and it reappears with no code
   change.
 - A photograph for the mentorship program.
-- Email address `hello@thikaartcollective.co.ke`, used in `partials/footer.html`,
-  `contact.html` and the fallback message in `src/js/form.js`.
 - Phone number and street address in `contact.html`.
 - Social links, currently `#`, in `partials/footer.html` and `contact.html`.
-- The Open Graph image path in `partials/head.html` is site relative. Some scrapers
-  want an absolute URL, so prefix it with the live domain once that is known.
 - The contact page carries a visible note about the placeholder details. Remove it
   once they are real.
 - The site is indexable as of the launch on 2026 08 14. If anything above is still a
@@ -179,21 +222,34 @@ so it still runs when the browser half cannot.
 `tests/site.mjs` is the browser half, and it covers the behaviour the markup
 cannot show on its own: the site rendering completely with JavaScript disabled on
 both desktop and mobile, the gallery filter pruning categories nothing is tagged
-with, the contact form validating and then handling both a working and an
-unreachable endpoint, the mobile navigation, reduced motion skipping the animation
-download entirely, and per page heading order, alt text and image sizing.
+with, two filter groups narrowing together rather than replacing each other, the
+contact form validating and then handling both a working and an unreachable
+endpoint, the mobile navigation, reduced motion skipping the animation download
+entirely, and per page heading order, alt text and image sizing.
+
+The filter groups are read from the markup rather than named in the script, so a
+new group is a markup change: a set of chips carrying `data-filter="<name>"` and a
+matching `data-<name>` attribute on the pieces. That is how the artist filter was
+added, and it is how the program filter will start working once pieces carry
+`data-program` values.
 
 Playwright resolves its own Chromium. If you have one somewhere else, point
 `CHROMIUM_PATH` at the binary.
 
 ## Deploying
 
-Live at https://thika-art-collective.netlify.app on the FEIYAH team. Project
-`thika-art-collective`, site id `1882539e-2cd7-406c-9f7f-5d13d7cc4ea5`.
+Live at https://thikaartcollective.co.ke on the FEIYAH team. Project
+`thika-art-collective`, site id `1882539e-2cd7-406c-9f7f-5d13d7cc4ea5`. The
+`netlify.app` subdomain still answers and every page names the custom domain as
+canonical, so the two are not indexed as duplicates.
 
-`netlify.toml` drives it: build with `npm run build`, publish `dist`, long cache
-headers on fingerprinted assets and fonts, and the noindex header described above.
-Any static host works, the build output is plain files.
+`netlify.toml` drives it: build with `npm run build`, publish `dist`, and long
+cache headers on fingerprinted assets and fonts. Any static host works, the build
+output is plain files.
+
+Mail is on Zoho. DNS lives in Netlify DNS and carries the three Zoho MX records,
+an SPF record and a DMARC policy of `p=none`. DKIM is not set up yet, so outbound
+mail is unsigned.
 
 ### Continuous deployment
 

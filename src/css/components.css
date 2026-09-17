@@ -475,6 +475,41 @@ a:hover .link-arrow span { transform: translateX(6px); }
   border: 1px solid var(--char);
 }
 
+/* An exhibition record, where there is one to show. */
+.artist__subhead {
+  font-family: var(--display);
+  font-size: var(--step--1);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 1.4rem;
+}
+
+.artist__list {
+  list-style: none;
+  margin-top: 0.5rem;
+  padding: 0;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+
+.artist__list li {
+  padding: 0.3rem 0 0.3rem 0.9rem;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+}
+
+.artist__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.95em;
+  width: 5px;
+  height: 5px;
+  background: var(--flare);
+}
+
+.artist__list li:last-child { border-bottom: 0; }
+
 /* ------------------------------------------------------------- gallery -- */
 
 .filters {

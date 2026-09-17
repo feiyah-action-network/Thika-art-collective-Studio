@@ -26,9 +26,9 @@
             <span class="line" data-hero-line><span><em>was thrown out first.</em></span></span>
           </h1>
           <p class="hero__lede" data-hero-fade>
-            Recent work photographed at the studio, most of it painted or stitched onto salvaged
-            packaging, some of it straight onto canvas. Filter by material. More are added here as
-            work is documented.
+            Recent work painted or stitched onto salvaged packaging and cardboard, some of it
+            straight onto canvas. Filter by material or by artist. More are added here as work is
+            documented.
           </p>
         </div>
       </section>
@@ -53,6 +53,14 @@
             </div>
 
             <div class="filters__group" style="width: 100%;">
+              <span class="filters__label" id="filter-artist">Artist</span>
+              <button class="chip" type="button" data-filter="artist" data-value="all" aria-pressed="true">All</button>
+              <button class="chip" type="button" data-filter="artist" data-value="kabiaru" aria-pressed="false">Daniel Kabiaru</button>
+              <button class="chip" type="button" data-filter="artist" data-value="kamiti" aria-pressed="false">George Kamiti</button>
+              <button class="chip" type="button" data-filter="artist" data-value="ndegwa" aria-pressed="false">Dennis Bull Ndegwa</button>
+            </div>
+
+            <div class="filters__group" style="width: 100%;">
               <span class="filters__label" id="filter-program">Program</span>
               <button class="chip" type="button" data-filter="program" data-value="all" aria-pressed="true">All</button>
               <button class="chip" type="button" data-filter="program" data-value="empowerment" aria-pressed="false">Empowerment</button>
@@ -65,19 +73,21 @@
 
           <h2 class="visually-hidden">All work</h2>
           <!--
-            Titles below are descriptive stand ins and materials are read from
-            the photographs. Replace both with the studio's own wording, and add
-            data-program tags to bring the program filter back automatically.
+            Daniel Kabiaru's pieces carry the title, medium, size and year printed
+            under each work in the catalogue the studio supplied, transcribed as
+            written. The remaining titles are descriptive stand ins. Add
+            data-program tags to any piece to bring the program filter back
+            automatically.
           -->
           <p class="form-note" data-reveal style="margin-bottom: 1.75rem;">
-            Attribution comes from the studio, and from the signature the three sack paintings
-            carry. Titles are descriptive stand ins and materials are described from the
-            photographs, both pending the studio's own wording.
+            Titles, mediums, sizes and years for Daniel Kabiaru's work are taken from the studio's
+            own catalogue. The remaining pieces are still listed under descriptive stand in titles,
+            with materials described from the photographs, pending the studio's wording.
           </p>
           <p class="visually-hidden" role="status" data-gallery-status></p>
 
           <div class="gallery" data-gallery>
-            <figure class="gallery__item" data-material="packaging" data-program="">
+            <figure class="gallery__item" data-material="packaging" data-program="" data-artist="ndegwa">
               <img
                 src="/images/gallery/rider-red-bike.webp"
                 srcset="/images/gallery/rider-red-bike-550.webp 550w, /images/gallery/rider-red-bike.webp 1100w"
@@ -94,7 +104,7 @@
               </figcaption>
             </figure>
 
-            <figure class="gallery__item" data-material="paper metal textile" data-program="">
+            <figure class="gallery__item" data-material="paper metal textile" data-program="" data-artist="kamiti">
               <img
                 src="/images/gallery/seed-packet-portrait.webp"
                 srcset="/images/gallery/seed-packet-portrait-450.webp 450w, /images/gallery/seed-packet-portrait.webp 900w"
@@ -111,7 +121,7 @@
               </figcaption>
             </figure>
 
-            <figure class="gallery__item" data-material="packaging" data-program="">
+            <figure class="gallery__item" data-material="packaging" data-program="" data-artist="ndegwa">
               <img
                 src="/images/gallery/rider-with-cargo.webp"
                 srcset="/images/gallery/rider-with-cargo-550.webp 550w, /images/gallery/rider-with-cargo.webp 1100w"
@@ -128,7 +138,7 @@
               </figcaption>
             </figure>
 
-            <figure class="gallery__item" data-material="plastic packaging metal" data-program="">
+            <figure class="gallery__item" data-material="plastic packaging metal" data-program="" data-artist="kamiti">
               <img
                 src="/images/gallery/bottle-top-portrait.webp"
                 srcset="/images/gallery/bottle-top-portrait-450.webp 450w, /images/gallery/bottle-top-portrait.webp 900w"
@@ -145,7 +155,7 @@
               </figcaption>
             </figure>
 
-            <figure class="gallery__item" data-material="packaging" data-program="">
+            <figure class="gallery__item" data-material="packaging" data-program="" data-artist="">
               <img
                 src="/images/gallery/matatu-on-gala-sack.webp"
                 srcset="/images/gallery/matatu-on-gala-sack-550.webp 550w, /images/gallery/matatu-on-gala-sack.webp 1100w"
@@ -162,7 +172,7 @@
               </figcaption>
             </figure>
 
-            <figure class="gallery__item" data-material="canvas" data-program="">
+            <figure class="gallery__item" data-material="canvas" data-program="" data-artist="">
               <img
                 src="/images/gallery/shields-and-fire.webp"
                 srcset="/images/gallery/shields-and-fire-600.webp 600w, /images/gallery/shields-and-fire.webp 1200w"
@@ -179,7 +189,7 @@
               </figcaption>
             </figure>
 
-            <figure class="gallery__item" data-material="cardboard canvas plastic" data-program="">
+            <figure class="gallery__item" data-material="cardboard canvas plastic" data-program="" data-artist="">
               <img
                 src="/images/gallery/veiled-figure.webp"
                 srcset="/images/gallery/veiled-figure-500.webp 500w, /images/gallery/veiled-figure.webp 1000w"
@@ -196,7 +206,7 @@
               </figcaption>
             </figure>
 
-            <figure class="gallery__item" data-material="packaging" data-program="">
+            <figure class="gallery__item" data-material="packaging" data-program="" data-artist="ndegwa">
               <img
                 src="/images/gallery/carrying-firewood.webp"
                 srcset="/images/gallery/carrying-firewood-600.webp 600w, /images/gallery/carrying-firewood.webp 1200w"
@@ -213,7 +223,7 @@
               </figcaption>
             </figure>
 
-            <figure class="gallery__item" data-material="metal packaging" data-program="">
+            <figure class="gallery__item" data-material="metal packaging" data-program="" data-artist="kamiti">
               <img
                 src="/images/gallery/tomato-paste-crown.webp"
                 srcset="/images/gallery/tomato-paste-crown-450.webp 450w, /images/gallery/tomato-paste-crown.webp 900w"
@@ -230,7 +240,7 @@
               </figcaption>
             </figure>
 
-            <figure class="gallery__item" data-material="metal" data-program="">
+            <figure class="gallery__item" data-material="metal" data-program="" data-artist="kamiti">
               <img
                 src="/images/gallery/stitched-profile.webp"
                 srcset="/images/gallery/stitched-profile-550.webp 550w, /images/gallery/stitched-profile.webp 1100w"
@@ -247,24 +257,24 @@
               </figcaption>
             </figure>
 
-            <figure class="gallery__item" data-material="cardboard canvas" data-program="">
+            <figure class="gallery__item" data-material="canvas cardboard" data-program="" data-artist="kabiaru">
               <img
-                src="/images/gallery/potter-in-blue.webp"
-                srcset="/images/gallery/potter-in-blue-500.webp 500w, /images/gallery/potter-in-blue.webp 1000w"
+                src="/images/gallery/what-it-takes.webp"
+                srcset="/images/gallery/what-it-takes-500.webp 500w, /images/gallery/what-it-takes.webp 1000w"
                 sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
-                alt="A potter in a blue shirt carrying two patterned clay vessels, painted on corrugated cardboard set into a ground of poured yellow, black and white paint with red bands"
+                alt="A potter in a blue shirt carrying two patterned pots, cardboard laid over the canvas behind him and a red band of small seated figures at the right"
                 width="1000"
-                height="770"
+                height="1045"
                 loading="lazy"
                 decoding="async"
               />
               <figcaption class="gallery__caption">
-                <h3>Potter in blue</h3>
-                <p>Corrugated cardboard and poured paint on canvas.</p>
+                <h3>What it takes</h3>
+                <p>Acrylic on canvas and cardboard, 50 x 50 cm. 2025. Daniel Kabiaru.</p>
               </figcaption>
             </figure>
 
-            <figure class="gallery__item" data-material="canvas" data-program="">
+            <figure class="gallery__item" data-material="canvas" data-program="" data-artist="">
               <img
                 src="/images/gallery/asleep-on-the-grass.webp"
                 srcset="/images/gallery/asleep-on-the-grass-600.webp 600w, /images/gallery/asleep-on-the-grass.webp 1200w"
@@ -281,7 +291,7 @@
               </figcaption>
             </figure>
 
-            <figure class="gallery__item" data-material="cardboard metal canvas" data-program="">
+            <figure class="gallery__item" data-material="cardboard metal canvas" data-program="" data-artist="kamiti">
               <img
                 src="/images/gallery/pink-relief.webp"
                 srcset="/images/gallery/pink-relief-550.webp 550w, /images/gallery/pink-relief.webp 1100w"
@@ -298,7 +308,7 @@
               </figcaption>
             </figure>
 
-            <figure class="gallery__item" data-material="metal packaging leather" data-program="">
+            <figure class="gallery__item" data-material="metal packaging leather" data-program="" data-artist="kamiti">
               <img
                 src="/images/gallery/label-hair-on-blue.webp"
                 srcset="/images/gallery/label-hair-on-blue-450.webp 450w, /images/gallery/label-hair-on-blue.webp 900w"
@@ -315,7 +325,7 @@
               </figcaption>
             </figure>
 
-            <figure class="gallery__item" data-material="leather metal packaging" data-program="">
+            <figure class="gallery__item" data-material="leather metal packaging" data-program="" data-artist="kamiti">
               <img
                 src="/images/gallery/brass-rosettes.webp"
                 srcset="/images/gallery/brass-rosettes-500.webp 500w, /images/gallery/brass-rosettes.webp 1000w"
@@ -332,7 +342,7 @@
               </figcaption>
             </figure>
 
-            <figure class="gallery__item" data-material="canvas" data-program="">
+            <figure class="gallery__item" data-material="canvas" data-program="" data-artist="">
               <img
                 src="/images/gallery/two-in-white.webp"
                 srcset="/images/gallery/two-in-white-550.webp 550w, /images/gallery/two-in-white.webp 1100w"
@@ -348,7 +358,550 @@
                 <p>Oil on canvas.</p>
               </figcaption>
             </figure>
-          </div>
+
+            <figure class="gallery__item" data-material="canvas" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/noa-kisu-nanasi-ni-mia.webp"
+                srcset="/images/gallery/noa-kisu-nanasi-ni-mia-500.webp 500w, /images/gallery/noa-kisu-nanasi-ni-mia.webp 1000w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A fruit seller in an orange jacket and wide red hat sits behind a heap of pineapples and a covered jar of peeled fruit, a handwritten hundred shilling sign among them, a cyclist passing behind against a dark green ground"
+                width="1000"
+                height="899"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Noa kisu Nanasi ni mia</h3>
+                <p>Acrylic on canvas, 136 x 122 cm. 2025. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="canvas" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/a-mile-in-my-dads-saddle.webp"
+                srcset="/images/gallery/a-mile-in-my-dads-saddle-500.webp 500w, /images/gallery/a-mile-in-my-dads-saddle.webp 1000w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="Three boys with bicycles far too tall for them against swirling green, one sitting on the ground beside a toy made from a tin"
+                width="1000"
+                height="855"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>A mile in my dads saddle</h3>
+                <p>Acrylic on canvas, 110 x 130 cm. 2025. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="canvas" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/as-we-fetch-water.webp"
+                srcset="/images/gallery/as-we-fetch-water-500.webp 500w, /images/gallery/as-we-fetch-water.webp 1000w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A boy pushes a bicycle loaded with two yellow water cans across a ground of swirling green"
+                width="1000"
+                height="572"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>As we fetch water</h3>
+                <p>Acrylic on canvas, 63 x 110 cm. 2025. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="canvas" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/untitled-10.webp"
+                srcset="/images/gallery/untitled-10-412.webp 412w, /images/gallery/untitled-10.webp 824w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="Concentric blue spirals fill the canvas, a single small figure standing where they open into pale water at the lower right"
+                width="824"
+                height="940"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Untitled 10</h3>
+                <p>Acrylic on canvas, 100 x 120 cm. 2024. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="canvas" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/border-to-border.webp"
+                srcset="/images/gallery/border-to-border-500.webp 500w, /images/gallery/border-to-border.webp 1000w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A man crouches to read a newspaper spread over the cargo rack of a bicycle while another walks away, against a deep red ground"
+                width="1000"
+                height="1060"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Border to border</h3>
+                <p>Acrylic on canvas, 121 x 107 cm. 2025. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="canvas" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/pride-in-stride-1.webp"
+                srcset="/images/gallery/pride-in-stride-1-282.webp 282w, /images/gallery/pride-in-stride-1.webp 563w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="Two giraffes walk through curling bands of blue, orange and green, the trees on either side painted as spirals"
+                width="563"
+                height="566"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Pride in stride 1</h3>
+                <p>Acrylic on canvas, 40 x 40 cm. 2025. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="canvas" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/pride-in-stride-2.webp"
+                srcset="/images/gallery/pride-in-stride-2-280.webp 280w, /images/gallery/pride-in-stride-2.webp 559w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="Two giraffes against a yellow sun, surrounded by curling waves of red, blue and white"
+                width="559"
+                height="552"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Pride in stride 2</h3>
+                <p>Acrylic on canvas, 40 x 40 cm. 2025. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="canvas" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/untitled-6.webp"
+                srcset="/images/gallery/untitled-6-410.webp 410w, /images/gallery/untitled-6.webp 820w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A lone figure in orange stands with a staff on a ridge, the sky above breaking into a gold sun and curling blue water"
+                width="820"
+                height="996"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Untitled 6</h3>
+                <p>Acrylic on canvas, 100 x 120 cm. 2024. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="canvas" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/untitled-9.webp"
+                srcset="/images/gallery/untitled-9-394.webp 394w, /images/gallery/untitled-9.webp 788w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A guitarist mid stride, body and clothes built from curling blue ribbons, against a ground of orange and green spirals"
+                width="788"
+                height="992"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Untitled 9</h3>
+                <p>Acrylic on canvas, 107 x 137 cm. 2024. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="canvas" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/untitled-11.webp"
+                srcset="/images/gallery/untitled-11-392.webp 392w, /images/gallery/untitled-11.webp 783w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A figure in profile dissolving into ribbons of blue, rose and green that stream out behind the head and shoulders"
+                width="783"
+                height="945"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Untitled 11</h3>
+                <p>Acrylic on canvas, 100 x 120 cm. 2024. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="canvas" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/untitled-13.webp"
+                srcset="/images/gallery/untitled-13-500.webp 500w, /images/gallery/untitled-13.webp 1000w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="Bands of blue, red and gold curl around a small bright core at the centre of the canvas"
+                width="1000"
+                height="831"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Untitled 13</h3>
+                <p>Acrylic on canvas, 210 x 240 cm. 2024. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="canvas" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/fragrance-time-was-meant-to-tell.webp"
+                srcset="/images/gallery/fragrance-time-was-meant-to-tell-500.webp 500w, /images/gallery/fragrance-time-was-meant-to-tell.webp 1000w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A figure seen from behind, coat and hat made entirely of painted flowers, against swirls of green and gold above a bed of blossom"
+                width="1000"
+                height="1131"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Fragrance (time was meant to tell)</h3>
+                <p>Acrylic on canvas, 70 x 80 cm. 2026. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="canvas" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/fragrance.webp"
+                srcset="/images/gallery/fragrance-500.webp 500w, /images/gallery/fragrance.webp 1000w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A wide canvas, two pale figures at the left, the rest given over to flowers and ribbons of colour unspooling to the right"
+                width="1000"
+                height="452"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Fragrance</h3>
+                <p>Acrylic on canvas, 55 x 120 cm. 2026. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/mama-mali-kwa-mali.webp"
+                srcset="/images/gallery/mama-mali-kwa-mali-429.webp 429w, /images/gallery/mama-mali-kwa-mali.webp 858w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A trader balancing stacked basins and buckets on her head, painted on torn cardboard set against poured black and white paint with a band of blue"
+                width="858"
+                height="960"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Mama mali kwa mali</h3>
+                <p>Acrylic on cardboard, 40 x 40 cm. 2025. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/the-wait.webp"
+                srcset="/images/gallery/the-wait-451.webp 451w, /images/gallery/the-wait.webp 901w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A figure in a red jacket leaning over a handcart, painted on torn cardboard beside a purple band and poured black and white paint"
+                width="901"
+                height="912"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>The wait</h3>
+                <p>Acrylic on cardboard, 40 x 40 cm. 2025. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/krisi-ni-ocha.webp"
+                srcset="/images/gallery/krisi-ni-ocha-422.webp 422w, /images/gallery/krisi-ni-ocha.webp 844w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A cyclist carrying a yellow load, painted on torn cardboard against a yellow band and marbled black and white paint"
+                width="844"
+                height="905"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Krisi ni ocha</h3>
+                <p>Acrylic on cardboard, 40 x 40 cm. 2025. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/mali-kwa-mali-1.webp"
+                srcset="/images/gallery/mali-kwa-mali-1-352.webp 352w, /images/gallery/mali-kwa-mali-1.webp 704w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A man walking with a stack of basins on his head and a bucket in each hand, on torn cardboard against a dark blue band"
+                width="704"
+                height="671"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Mali kwa mali 1</h3>
+                <p>Acrylic on cardboard, 40 x 40 cm. 2025. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/the-dreamer.webp"
+                srcset="/images/gallery/the-dreamer-328.webp 328w, /images/gallery/the-dreamer.webp 656w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A cyclist with a heavily loaded bicycle, painted on torn cardboard beside a red band and poured black and white paint"
+                width="656"
+                height="687"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>The dreamer</h3>
+                <p>Acrylic on cardboard, 40 x 40 cm. 2025. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/skuma-isonge-mbele.webp"
+                srcset="/images/gallery/skuma-isonge-mbele-340.webp 340w, /images/gallery/skuma-isonge-mbele.webp 680w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A woman cycling with a bundle balanced on her head, painted on torn cardboard against a deep blue band"
+                width="680"
+                height="691"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Skuma isonge mbele</h3>
+                <p>Acrylic on cardboard, 40 x 40 cm. 2025. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/all-the-hats.webp"
+                srcset="/images/gallery/all-the-hats-500.webp 500w, /images/gallery/all-the-hats.webp 1000w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A hat seller with stacks of hats over both arms and one held up for sale, painted on cardboard against a yellow band"
+                width="1000"
+                height="967"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>All the hats</h3>
+                <p>Acrylic on cardboard, 40 x 40 cm. 2025. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/mama-chai.webp"
+                srcset="/images/gallery/mama-chai-500.webp 500w, /images/gallery/mama-chai.webp 1000w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A tea picker in a red coat and blue headwrap kneeling among green bushes with a basket at her side, on torn cardboard with a red band"
+                width="1000"
+                height="973"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Mama chai</h3>
+                <p>Acrylic on cardboard, 40 x 40 cm. 2025. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/the-sunglasses.webp"
+                srcset="/images/gallery/the-sunglasses-500.webp 500w, /images/gallery/the-sunglasses.webp 1000w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A vendor carrying a tray of sunglasses on their head, painted on torn cardboard against an orange band"
+                width="1000"
+                height="1016"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>The sunglasses</h3>
+                <p>Acrylic on cardboard, 40 x 40 cm. 2025. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/ice-cream-man.webp"
+                srcset="/images/gallery/ice-cream-man-500.webp 500w, /images/gallery/ice-cream-man.webp 1000w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A man pushing a bicycle stacked with yellow cones and bundles, on cardboard against a green band and marbled paint"
+                width="1000"
+                height="1015"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Ice cream man</h3>
+                <p>Acrylic on cardboard, 30 x 30 cm. 2025. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/makaa-imepanda-bei.webp"
+                srcset="/images/gallery/makaa-imepanda-bei-500.webp 500w, /images/gallery/makaa-imepanda-bei.webp 1000w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A man standing with a bicycle loaded with four bundles of charcoal, painted on cardboard against a red band and silvery poured paint"
+                width="1000"
+                height="1002"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Makaa imepanda bei</h3>
+                <p>Acrylic on cardboard, 40 x 40 cm. 2025. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/coloured-pots.webp"
+                srcset="/images/gallery/coloured-pots-500.webp 500w, /images/gallery/coloured-pots.webp 1000w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A seller almost hidden behind columns of bright plastic basins and water cans, on cardboard against an orange band"
+                width="1000"
+                height="1010"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Coloured pots</h3>
+                <p>Acrylic on cardboard, 70 x 70 cm. 2026. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/my-grind.webp"
+                srcset="/images/gallery/my-grind-500.webp 500w, /images/gallery/my-grind.webp 1000w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A man walking away carrying a stack of yellow crates and a bundle, on torn cardboard against an orange band"
+                width="1000"
+                height="989"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>My grind</h3>
+                <p>Acrylic on cardboard, 40 x 40 cm. 2026. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/mahamri-ni-10.webp"
+                srcset="/images/gallery/mahamri-ni-10-500.webp 500w, /images/gallery/mahamri-ni-10.webp 1000w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A cook in a yellow shirt bending over a basin of frying dough, painted on torn cardboard with a purple band"
+                width="1000"
+                height="997"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Mahamri ni 10</h3>
+                <p>Acrylic on cardboard, 75 x 75 cm. 2026. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/mama-mahamri.webp"
+                srcset="/images/gallery/mama-mahamri-299.webp 299w, /images/gallery/mama-mahamri.webp 598w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A woman in an orange dress walking away with a bucket in her hand, on cardboard with a purple band over poured black and white paint"
+                width="598"
+                height="638"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Mama mahamri</h3>
+                <p>Acrylic on cardboard, 40 x 40 cm. 2026. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/mitumba.webp"
+                srcset="/images/gallery/mitumba-342.webp 342w, /images/gallery/mitumba.webp 684w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A young man in a blue jacket with a red rucksack sorting through clothes, on cardboard against a dark red band"
+                width="684"
+                height="634"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>Mitumba</h3>
+                <p>Acrylic on cardboard, 40 x 40 cm. 2026. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/my-love-for-soccer.webp"
+                srcset="/images/gallery/my-love-for-soccer-259.webp 259w, /images/gallery/my-love-for-soccer.webp 518w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A seated figure built entirely from rolled and folded cardboard, elbows on knees, on a beer carton used as a plinth"
+                width="518"
+                height="639"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>My love for soccer</h3>
+                <p>Cardboard, 40 x 30 x 50 cm. 2025. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/my-ride-awaits.webp"
+                srcset="/images/gallery/my-ride-awaits-500.webp 500w, /images/gallery/my-ride-awaits.webp 1000w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A young man in a red t-shirt shading his eyes, leaning against a bicycle with an orange box on the rack, on cardboard beside a teal band"
+                width="1000"
+                height="1022"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>My ride awaits</h3>
+                <p>Acrylic on cardboard, 40 x 40 cm. 2026. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>
+
+            <figure class="gallery__item" data-material="cardboard" data-program="" data-artist="kabiaru">
+              <img
+                src="/images/gallery/the-baskets-i-sell.webp"
+                srcset="/images/gallery/the-baskets-i-sell-336.webp 336w, /images/gallery/the-baskets-i-sell.webp 672w"
+                sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                alt="A seller with a basket of produce on her head and two more in her hands, painted on cardboard with a green band"
+                width="672"
+                height="658"
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption class="gallery__caption">
+                <h3>The baskets I sell</h3>
+                <p>Acrylic on cardboard, 40 x 40 cm. 2026. Daniel Kabiaru.</p>
+              </figcaption>
+            </figure>          </div>
 
           <p class="gallery-empty" data-gallery-empty hidden>
             No pieces match that pair of filters yet. Try one filter at a time.
