@@ -186,7 +186,12 @@ The following are placeholders and need the studio's real details:
   change.
 - A photograph for the mentorship program.
 - Phone number and street address in `contact.html`.
-- Social links, currently `#`, in `partials/footer.html` and `contact.html`.
+- Social accounts. The placeholder Instagram, Facebook and TikTok links pointed at
+  `#` and have been removed rather than left dead. Add them back to
+  `partials/footer.html` and `contact.html` when there are real accounts to link.
+- The mailbox `dennisndegwabull@thikaartcollective.co.ke` has to exist in Zoho.
+  It is published on every page, so if it is not a real user or alias there, mail
+  sent to it bounces.
 - The contact page carries a visible note about the placeholder details. Remove it
   once they are real.
 - The site is indexable as of the launch on 2026 08 14. If anything above is still a
