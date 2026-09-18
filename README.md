@@ -231,11 +231,8 @@ The following are placeholders and need the studio's real details:
 - Social accounts. The placeholder Instagram, Facebook and TikTok links pointed at
   `#` and have been removed rather than left dead. Add them back to
   `partials/footer.html` and `contact.html` when there are real accounts to link.
-- The mailbox `dennisndegwabull@thikaartcollective.co.ke` has to exist in Zoho.
-  It is published on every page, so if it is not a real user or alias there, mail
-  sent to it bounces.
-- The contact page carries a visible note about the placeholder details. Remove it
-  once they are real.
+- The contact page carries a visible note saying a phone number and social accounts
+  are still to come. Remove it once they are there.
 - The site is indexable as of the launch on 2026 08 14. If anything above is still a
   placeholder when search engines crawl, it will be cached that way, so the contact
   details are the urgent ones.
@@ -297,6 +294,9 @@ output is plain files.
 Mail is on Zoho. DNS lives in Netlify DNS and carries the three Zoho MX records,
 an SPF record, a DKIM key on the selector `art`, and a DMARC policy of `p=none`
 reporting to the studio. Outbound mail is signed.
+
+Both published addresses are live and have been delivered to:
+`hello@thikaartcollective.co.ke` and `dennisndegwabull@thikaartcollective.co.ke`.
 
 The DKIM key is 1024 bit, which is what Zoho issues by default. RFC 8301 asks for
 2048, and every major receiver still accepts 1024, so this is worth upgrading at
