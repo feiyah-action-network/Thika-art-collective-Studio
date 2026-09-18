@@ -56,9 +56,10 @@ Measured on the built site, throttled, 390px mobile viewport, home page:
 First paint does not wait on photographs. Before `srcset` was added the same page
 pulled 594 kB and took 14s to finish loading on Slow 3G.
 
-The gallery holds 48 pieces and is the heaviest page. On Slow 3G it still paints
+The gallery holds 62 pieces and is the heaviest page. On Slow 3G it still paints
 in 1.4s and transfers 359 kB, because only the 7 images near the viewport are
-fetched. The other 41 arrive as you scroll. Image quality is deliberately not
+fetched. The rest arrive as you scroll, which is why going from 48 pieces to 62
+changed those numbers by nothing at all. Image quality is deliberately not
 traded down any further here: on a page whose entire purpose is showing
 artwork, a few kilobytes per image is the wrong saving.
 
@@ -146,6 +147,33 @@ the wall-heavy shots, which is worth knowing before anyone tries again.
 Every title, medium, size and year in `WORKS` is transcribed from the caption the
 studio printed under that piece, including its spelling. Nothing is inferred.
 
+### The artist portfolio
+
+Dennis Bull Ndegwa's work came as a Canva export: an artist statement, an
+exhibition list, one or two works per page with a printed caption, and a contact
+page.
+
+```bash
+node tools/process-portfolio.mjs          # reads source/portfolio-dennis-ndegwa.pdf
+```
+
+It writes 14 works into `public/images/gallery` at two widths each and leaves the
+markup data in `tools/portfolio-output.json`.
+
+Getting the captions out took three passes, which is worth recording. Canva draws
+text glyph by glyph through nested form XObjects, so naive extraction returns
+nothing usable. The captions are also stored as PDF bookmarks, and those came out
+cleanly, but there are only 11 bookmarks for 14 works because three pages hold two
+paintings and are bookmarked once. Installing poppler and running `pdftotext` per
+page gave the missing three, and rendering those three pages settled which caption
+belongs to which painting. Resource order is not visual order: on each of those
+pages the first image in the resource dictionary is the lower one on the page, so
+`WORKS` records the pairing explicitly.
+
+No years are recorded for these, because the portfolio does not state any. Six are
+marked sold, which is transcribed from the portfolio and is a snapshot of when it
+was written rather than live stock.
+
 ### Still generated placeholders
 
 `tools/make-placeholders.mjs` now produces one file,
@@ -164,14 +192,21 @@ The following are placeholders and need the studio's real details:
 - Portraits, mediums and biographies for John Ruitha and Peter Ndirangu in
   `artists.html`. Nothing is written on their behalf, so each card shows an initial
   tile, a "Medium to be confirmed" line and a profile panel saying what is still
-  being collected. Daniel Kabiaru's card is filled in from the catalogue he
-  supplied, and Dennis Bull Ndegwa and George Kamiti have work images and a short
-  note but no portrait or biography yet.
-- Gallery titles for the 15 pieces that are not Daniel Kabiaru's. Those are
-  descriptive stand ins written from the photographs, with materials read off the
-  images. Kabiaru's 33 carry the studio's own titles, mediums, sizes and years. The
-  two sack paintings are attributed to Dennis Bull Ndegwa on the strength of the
-  Bull signature they carry, which is worth confirming with him.
+  being collected. Daniel Kabiaru and Dennis Bull Ndegwa are filled in from the
+  catalogue and portfolio they supplied. George Kamiti has work images and a short
+  note but no portrait or biography yet, and Dennis has no portrait, because his
+  portfolio does not contain one.
+- Gallery titles for the 15 pieces that came from neither supplied document. Those
+  are descriptive stand ins written from the photographs, with materials read off
+  the images. Kabiaru's 33 and Ndegwa's 14 carry their own titles, mediums and
+  sizes. Three older sack paintings are attributed to Dennis Bull Ndegwa on the
+  strength of the Bull signature they carry but still have stand in titles, so they
+  are the obvious ones to name next.
+- Dennis Bull Ndegwa's portfolio ends with a contact page giving a personal mobile
+  number, a personal Gmail address and three social handles. None of it is
+  published. The handles are his artist accounts rather than the studio's, and
+  publishing a personal mobile on an indexable site is his call to make, not one to
+  make for him. Ask him which of it he wants on the site.
 - "Veiled figure" in the gallery is unattributed, but it is cardboard, poured paint
   and a hard band of colour, which is exactly Daniel Kabiaru's cardboard series. It
   is not in his catalogue, so it has been left unattributed. Worth asking him.
