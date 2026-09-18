@@ -305,12 +305,36 @@ replacing the `art._domainkey` TXT record.
 
 ### Continuous deployment
 
-The first deploy was pushed from a working copy, so the project is not yet linked to
-GitHub. To link it, in the Netlify UI open the project, go to Project configuration,
-Build and deploy, Link repository, and pick `feiyahactionnetwork/Thika-art-collective-Studio`.
-Netlify reads the build command and publish directory from `netlify.toml`, so nothing
-needs typing. Set the production branch to `main` once this work is merged, otherwise
-set it to the branch you want live.
+**Pushing to `main` does not currently deploy.** It did until 17 September 2026, and
+stopped at the same time as the Claude GitHub App lost access to this repository,
+which points at the organisation's third party access settings changing rather than
+anything in this repo. A push on 18 September produced no Netlify build after six
+minutes, checked against the project's current deploy id rather than by waiting for
+the page to change.
+
+Until it is fixed, every content change needs a manual deploy after the push, or the
+live site silently lags behind `main`:
+
+```bash
+npm test                 # do not skip, nothing else gates the deploy
+npx -y @netlify/mcp@latest --site-id <site-id> --proxy-path "<proxy url>"
+```
+
+To repair the link, check in this order:
+
+1. GitHub, organisation settings, third party access or installed GitHub Apps.
+   Confirm the **Netlify** app is installed and that its repository access includes
+   `Thika-art-collective-Studio`. This is the most likely culprit, because the same
+   settings change locked out a different app on the same day.
+2. Netlify, Project configuration, Build and deploy, Continuous deployment. If the
+   repository is still shown as linked, unlink and relink it. Netlify reads the build
+   command and publish directory from `netlify.toml`, so nothing needs typing.
+   Production branch is `main`.
+3. Push any small commit and confirm a build starts, rather than assuming. The
+   project's current deploy id changing is the signal.
+
+Neither step can be done from a coding session: both are UI actions in accounts this
+project does not hold credentials for.
 
 ### Custom domain
 
