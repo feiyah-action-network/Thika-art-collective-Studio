@@ -213,14 +213,21 @@ The following are placeholders and need the studio's real details:
 - `source/studio-group-photo.jpg` shows identifiable people and came in with the
   catalogue upload. It is kept as a source and deliberately not published anywhere
   on the site, because nobody here can confirm the people in it agreed to that.
-- All body copy is a draft for the studio to approve. The three pull quotes on the
-  home, programs and gallery pages are illustrative lines, not anything anyone
-  actually said, so either replace them with real quotations or cut them.
+- All body copy is a draft for the studio to approve. It is written from the brief,
+  not quoted from anyone. The four display pull quotes that used to sit on the home,
+  programs, gallery and artists pages have been cut: they were lines nobody actually
+  said, set in large type where they read as the studio's voice. The sections they
+  sat beside are now single column. If the studio wants real quotations there, the
+  layout takes them back easily, and the removed styling is in the git history.
 - Program tags on gallery pieces. Nothing is tagged yet, so the program filter hides
   itself. Add `data-program` values to the figures and it reappears with no code
   change.
 - A photograph for the mentorship program.
-- Phone number and street address in `contact.html`.
+- Phone number and street address in `contact.html`. The invented `+254 7XX XXX XXX`
+  has been removed along with the whole Phone block, rather than left on a page
+  search engines index. Email and the contact form are the two routes in until a
+  real number is confirmed. Dennis Bull Ndegwa's portfolio carries a mobile that
+  would do, if he is happy for it to be public.
 - Social accounts. The placeholder Instagram, Facebook and TikTok links pointed at
   `#` and have been removed rather than left dead. Add them back to
   `partials/footer.html` and `contact.html` when there are real accounts to link.

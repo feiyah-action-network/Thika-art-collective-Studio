@@ -25,8 +25,7 @@
 /* Clay is a mid tone, so the muted invert ink does not carry enough contrast
    against it. Anything on clay uses the full strength invert. */
 .section--clay .eyebrow,
-.section--clay p,
-.section--clay .pull-quote cite { color: var(--ink-invert); }
+.section--clay p { color: var(--ink-invert); }
 .section--deep { background: var(--paper-deep); }
 
 /* Torn edge between sections, cut with a mask so it works over any colour. */

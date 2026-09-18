@@ -694,27 +694,6 @@ a:hover .link-arrow span { transform: translateX(6px); }
 .involve h3 { font-size: var(--step-1); margin-bottom: 0.5rem; }
 .involve p { font-size: var(--step--1); color: var(--ink-soft); }
 
-/* -------------------------------------------------------------- quotes -- */
-
-.pull-quote {
-  font-family: var(--display);
-  font-size: var(--step-3);
-  line-height: 1.06;
-  text-transform: uppercase;
-  max-width: 20ch;
-}
-
-.pull-quote cite {
-  display: block;
-  margin-top: 1rem;
-  font-family: var(--body);
-  font-style: normal;
-  font-size: var(--step--1);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--ink-invert-soft);
-}
-
 /* Values and steps */
 .numbered {
   list-style: none;
