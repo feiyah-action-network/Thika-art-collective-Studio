@@ -50,6 +50,23 @@ const browser = await chromium.launch(launch);
   check('no JS: every gallery piece is listed', gallery.items > 0, `items=${gallery.items}`);
   check('no JS: filter bar stays hidden', gallery.barHidden === true);
 
+  await page.goto(`${BASE}/`, { waitUntil: 'load' });
+  const strip = await page.evaluate(() => {
+    const el = document.querySelector('[data-strip]');
+    if (!el) return null;
+    return {
+      items: el.querySelectorAll('.work-strip__item').length,
+      overflow: getComputedStyle(el).overflowX,
+      animated: el.classList.contains('is-animated')
+    };
+  });
+  check('no JS: the work strip is present', strip && strip.items > 0, JSON.stringify(strip));
+  check(
+    'no JS: the work strip can still be scrolled by hand',
+    strip && strip.overflow !== 'hidden' && strip.animated === false,
+    `overflow=${strip && strip.overflow} animated=${strip && strip.animated}`
+  );
+
   await page.goto(`${BASE}/artists.html`, { waitUntil: 'load' });
   const disclosure = await page.evaluate(() => {
     const d = document.querySelector('.artist__more');
@@ -75,21 +92,16 @@ const browser = await chromium.launch(launch);
 
   check('filter bar appears once its script runs', !(await page.locator('[data-filters]').isHidden()));
 
-  /* The bar prunes itself, so these depend on how pieces are tagged today. */
+  /* The bar prunes itself, so this depends on how pieces are tagged today. */
   const tagged = await page.evaluate(() => {
     const items = [...document.querySelectorAll('[data-material]')];
     const used = (group, value) => items.some((i) => (i.dataset[group] || '').split(' ').includes(value));
     return {
       materials: [...new Set(items.flatMap((i) => (i.dataset.material || '').split(' ').filter(Boolean)))],
-      anyProgram: items.some((i) => (i.dataset.program || '').trim() !== ''),
       woodUsed: used('material', 'wood')
     };
   });
 
-  check(
-    'program group hidden while no piece is tagged',
-    tagged.anyProgram || (await page.locator('[data-filter="program"][data-value="all"]').isHidden())
-  );
   check(
     'unused material chip is hidden',
     tagged.woodUsed || (await page.locator('[data-filter="material"][data-value="wood"]').isHidden())
@@ -249,7 +261,64 @@ const browser = await chromium.launch(launch);
   check('reduced motion: everything is visible at once', hidden === 0, `hidden=${hidden}`);
   check('reduced motion: the animation bundle is never fetched', !requested.some((u) => /motion-/.test(u)));
   check('reduced motion: smooth scrolling is not attached', !(await page.evaluate(() => document.documentElement.classList.contains('lenis'))));
+
+  const rmStrip = await page.evaluate(() => {
+    const el = document.querySelector('[data-strip]');
+    return el ? { animated: el.classList.contains('is-animated'), overflow: getComputedStyle(el).overflowX } : null;
+  });
+  check(
+    'reduced motion: the work strip stays hand scrollable',
+    rmStrip && !rmStrip.animated && rmStrip.overflow !== 'hidden',
+    JSON.stringify(rmStrip)
+  );
+
+  await page.goto(`${BASE}/programs.html`, { waitUntil: 'networkidle' });
+  await page.waitForTimeout(400);
+  const clipped = await page.evaluate(
+    () =>
+      [...document.querySelectorAll('[data-reveal-img]')].filter((e) => {
+        const c = getComputedStyle(e).clipPath;
+        return c && c !== 'none' && !c.includes('0px 0px 0px 0px');
+      }).length
+  );
+  check('reduced motion: no photograph is left wiped out', clipped === 0, `clipped=${clipped}`);
   await ctx.close();
+}
+
+/* ------------------------------------------- 6b. the work strip moves --- */
+{
+  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
+  await page.goto(`${BASE}/`, { waitUntil: 'networkidle' });
+  await page.waitForTimeout(900);
+
+  const armed = await page.evaluate(() => {
+    const el = document.querySelector('[data-strip]');
+    return el ? el.classList.contains('is-animated') : null;
+  });
+  check('work strip is taken over by the scroll animation', armed === true, `animated=${armed}`);
+
+  /* It must move with the scroll and not on its own: sample the offset twice
+     while the page is still, then once after scrolling past it. */
+  const readX = () =>
+    page.evaluate(() => {
+      const t = document.querySelector('[data-strip-track]');
+      return t ? new DOMMatrixReadOnly(getComputedStyle(t).transform).m41 : null;
+    });
+  const idleA = await readX();
+  await page.waitForTimeout(700);
+  const idleB = await readX();
+  check('work strip does not move while the page is idle', idleA === idleB, `${idleA} then ${idleB}`);
+
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight * 0.5));
+  await page.waitForTimeout(900);
+  const afterScroll = await readX();
+  check(
+    'work strip moves once the page is scrolled',
+    afterScroll !== null && idleB !== null && afterScroll < idleB,
+    `${idleB} then ${afterScroll}`
+  );
+
+  await page.close();
 }
 
 /* ------------------------------------------------- 7. per page ---------- */

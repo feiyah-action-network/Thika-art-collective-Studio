@@ -729,12 +729,69 @@ a:hover .link-arrow span { transform: translateX(6px); }
 .numbered p { font-size: var(--step-0); color: var(--ink-soft); margin: 0; }
 .section--dark .numbered p { color: var(--ink-invert-soft); }
 
+/* --------------------------------------------------------- work strip -- */
+/* A band of finished work that drifts sideways as the page scrolls. It never
+   moves on its own: the offset is tied to scroll position, so an idle page
+   stays still, which keeps the motion budget the rest of the site follows.
+
+   The default is an ordinary horizontally scrollable row. Only once the
+   animation actually starts does the script add .is-animated and take the
+   scrollbar away, so no JavaScript, failed JavaScript and reduced motion all
+   leave a row the visitor can still get through by hand. */
+
+.work-strip {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: clamp(1.75rem, 4vw, 3rem);
+  background: var(--char);
+  border-block: 2px solid var(--char);
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.work-strip.is-animated {
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+.work-strip.is-animated::-webkit-scrollbar { display: none; }
+
+.work-strip__track {
+  display: flex;
+  gap: clamp(0.6rem, 1.6vw, 1.1rem);
+  width: max-content;
+  padding-inline: var(--gutter);
+  margin: 0;
+  list-style: none;
+  will-change: transform;
+}
+
+.work-strip__item {
+  flex: 0 0 auto;
+  width: clamp(142px, 20vw, 240px);
+  border: 2px solid var(--char);
+  background: var(--paper);
+  box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.45);
+}
+
+.work-strip__item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
 /* ------------------------------------------------------------- reveals -- */
 /* Hidden start states only exist when JavaScript is running, so a no script
    visitor sees the finished layout with nothing missing. */
 
 .js [data-reveal] { opacity: 0; transform: translateY(28px); will-change: transform, opacity; }
 .js [data-reveal].is-revealed { opacity: 1; transform: none; }
+
+/* Feature photographs wipe upward instead of fading, which suits work that is
+   mostly torn edges and hard bands of colour. */
+.js [data-reveal-img] { clip-path: inset(0 0 100% 0); will-change: clip-path, transform; }
+.js [data-reveal-img].is-revealed { clip-path: inset(0 0 0 0); }
 .js .hero [data-hero-line] > span { transform: translateY(105%); }
 .js .hero__collage .hero__panel,
 .js .hero [data-hero-fade] { opacity: 0; }
@@ -750,8 +807,14 @@ a:hover .link-arrow span { transform: translateX(6px); }
     transform: none !important;
   }
 
+  .js [data-reveal-img] { clip-path: none !important; }
+
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
 }
+
+/* If the animation bundle never arrives, main.js adds this and everything with
+   a hidden start state has to come back. */
+.motion-off [data-reveal-img] { clip-path: none !important; transform: none !important; }

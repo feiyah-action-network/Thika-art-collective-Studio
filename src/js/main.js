@@ -24,6 +24,11 @@ function releaseHiddenContent() {
     el.style.opacity = '1';
     el.style.transform = 'none';
   });
+  /* The wipe hides a photograph completely, so it has to come back too. */
+  document.querySelectorAll('[data-reveal-img]').forEach((el) => {
+    el.style.clipPath = 'none';
+    el.style.transform = 'none';
+  });
 }
 
 const failsafe = window.setTimeout(releaseHiddenContent, 2500);

@@ -3,8 +3,11 @@
  * Loaded on demand, and never loaded at all when the visitor asks for
  * reduced motion.
  *
- * Motion budget: hero entrance, one reveal per section, a slow parallax on the
- * hero collage. Nothing loops, nothing moves while the page is idle.
+ * Motion budget: hero entrance, one reveal per section, a wipe on feature
+ * photographs, a slow parallax on the hero collage, and a band of work that
+ * drifts sideways with the scroll. Nothing loops, and nothing moves while the
+ * page is idle: every one of these is either a one shot or tied to scroll
+ * position.
  */
 import Lenis from 'lenis';
 import { gsap } from 'gsap';
@@ -114,10 +117,69 @@ function initParallax() {
   });
 }
 
+/* Feature photographs wipe up from nothing rather than fading in. The start
+   state lives in CSS behind .js, so a visitor without this bundle sees the
+   photograph normally. */
+function initImageReveals() {
+  gsap.utils.toArray('[data-reveal-img]').forEach((el) => {
+    gsap.fromTo(
+      el,
+      { clipPath: 'inset(0% 0% 100% 0%)', scale: 1.06 },
+      {
+        clipPath: 'inset(0% 0% 0% 0%)',
+        scale: 1,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 86%', once: true },
+        onStart: () => el.classList.add('is-revealed')
+      }
+    );
+  });
+}
+
+/* The work strip moves with the scroll, never on its own. The class is added
+   only once the animation is actually set up, because the CSS keeps the row
+   hand scrollable until then. */
+function initWorkStrips() {
+  gsap.utils.toArray('[data-strip]').forEach((strip) => {
+    const track = strip.querySelector('[data-strip-track]');
+    if (!track) return;
+
+    const setup = () => {
+      const distance = track.scrollWidth - strip.clientWidth;
+      if (distance <= 0) return;
+
+      strip.classList.add('is-animated');
+      gsap.fromTo(
+        track,
+        { x: 0 },
+        {
+          x: -distance,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: strip,
+            start: 'top bottom',
+            end: 'bottom top',
+            scrub: 0.6,
+            invalidateOnRefresh: true
+          }
+        }
+      );
+    };
+
+    /* The track is built from lazy images, so its width is not final until
+       they have arrived. */
+    if (document.readyState === 'complete') setup();
+    else window.addEventListener('load', setup, { once: true });
+  });
+}
+
 export function initMotion() {
   initSmoothScroll();
   initHero();
   initReveals();
+  initImageReveals();
+  initWorkStrips();
   initParallax();
 
   /* Lazy images and filtered grids change the page height. Batch the

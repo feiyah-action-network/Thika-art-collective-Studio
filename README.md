@@ -45,18 +45,26 @@ only way to survive JavaScript being blocked or failing to load.
 - Every image is lazy loaded, carries width and height so nothing shifts, and is
   decoded off the main thread. The one hero image is eager with high priority.
 
-Measured on the built site, throttled, 390px mobile viewport, home page:
+Measured on the built site, Slow 3G, 390px mobile viewport:
 
-| Connection | First contentful paint | Load | Transferred |
+| Page | First contentful paint | Load | Transferred |
 | --- | --- | --- | --- |
-| Slow 3G | 1.48s | 6.5s | 222 kB |
-| Fast 3G | 0.61s | 1.4s | 152 kB |
-| 4G | 0.30s | 0.26s | 152 kB |
+| Home | 1.56s | 8.8s | 316 kB |
+| Vision | 1.45s | 5.4s | 156 kB |
+| Gallery | 1.48s | 9.4s | 359 kB |
 
-First paint does not wait on photographs. Before `srcset` was added the same page
-pulled 594 kB and took 14s to finish loading on Slow 3G.
+First paint does not wait on photographs anywhere. Before `srcset` was added the
+home page pulled 594 kB and took 14s to finish loading.
 
-The gallery holds 62 pieces and is the heaviest page. On Slow 3G it still paints
+The home and vision pages carry a scrolling strip of work, which costs the home
+page about 56 kB and a second and a half. That is the strip's whole budget
+because its tiles are square 150px and 300px thumbnails cut for the purpose. The
+first attempt pointed them at the gallery images instead, which are up to 500px
+on the long edge and not square, so the browser downloaded pixels CSS then
+cropped away: 644 kB and 15s on the home page, more than double. If you add
+tiles, regenerate the thumbnails rather than reusing gallery files.
+
+The gallery holds 62 pieces and is still the heaviest page. On Slow 3G it still paints
 in 1.4s and transfers 359 kB, because only the 7 images near the viewport are
 fetched. The rest arrive as you scroll, which is why going from 48 pieces to 62
 changed those numbers by nothing at all. Image quality is deliberately not
@@ -93,9 +101,13 @@ looking printed.
 
 Type is Anton for display and Work Sans for body text. All copy avoids em dashes.
 
-Motion is deliberately limited to three moments: the hero entrance, one reveal per
-section on scroll, and card hovers. Nothing loops and nothing moves while the page is
-idle.
+Motion is deliberately limited: the hero entrance, one reveal per section on
+scroll, a wipe on feature photographs, card hovers, a slow parallax on the hero
+collage, and a band of work that drifts sideways as you scroll.
+
+Nothing loops, and nothing moves while the page is idle. That rule is why the
+work strip is tied to scroll position rather than running on a timer, and there
+is a test that samples its offset twice while the page is still to prove it.
 
 ## Photographs
 
@@ -173,6 +185,26 @@ pages the first image in the resource dictionary is the lower one on the page, s
 No years are recorded for these, because the portfolio does not state any. Six are
 marked sold, which is transcribed from the portfolio and is a snapshot of when it
 was written rather than live stock.
+
+### The work strips
+
+The home and vision pages each carry a band of work that drifts sideways with the
+scroll. The tiles are square thumbnails cut for the purpose rather than gallery
+files:
+
+```bash
+node tools/make-strip-thumbs.mjs      # writes public/images/strip
+```
+
+The slug lists live in that script and have to stay in step with the two
+`[data-strip]` sections. The two sets do not overlap, so moving from the home page
+to the vision page shows different work.
+
+It degrades in the right direction. The markup is a plain list in a horizontally
+scrollable element, so no JavaScript, a failed bundle and reduced motion all leave
+a row the visitor can push through by hand. Only once the scroll animation is
+actually wired up does the script add `is-animated`, which is what takes the
+scrollbar away.
 
 ### Still generated placeholders
 
