@@ -305,36 +305,47 @@ replacing the `art._domainkey` TXT record.
 
 ### Continuous deployment
 
-**Pushing to `main` does not currently deploy.** It did until 17 September 2026, and
-stopped at the same time as the Claude GitHub App lost access to this repository,
-which points at the organisation's third party access settings changing rather than
-anything in this repo. A push on 18 September produced no Netlify build after six
-minutes, checked against the project's current deploy id rather than by waiting for
-the page to change.
+Pushing to `main` builds and deploys. The project is linked to
+`feiyah-action-network/Thika-art-collective-Studio`, production branch `main`, and
+Netlify reads the build command and publish directory from `netlify.toml`.
 
-Until it is fixed, every content change needs a manual deploy after the push, or the
-live site silently lags behind `main`:
+#### If deploys stop again
+
+They did once, between 17 and 22 September 2026, and the cause is worth recording
+because nothing looked broken.
+
+**The repository was transferred from a personal account into the organisation.**
+GitHub redirects the old URL forever after a transfer, so `git push` kept working and
+gave no hint anything had changed. GitHub App installations do not follow a transfer,
+though, so Netlify's app stayed behind on the personal account and simply stopped
+receiving webhooks. The Claude GitHub App lost access the same day for the same
+reason. One event, two symptoms, and no wrong setting to find.
+
+The repair was to install the Netlify GitHub App on the organisation
+(`https://github.com/apps/netlify`, Configure, pick the org, grant this repository)
+and then unlink and relink the repository under Project configuration, Build and
+deploy. Relinking is required rather than optional: the stored link still pointed at
+the old owner. Both are UI actions in accounts a coding session holds no credentials
+for.
+
+Whatever the cause next time, diagnose it the same way: push a commit and watch the
+project's **current deploy id**, not the page. A README only commit changes no page
+content, so waiting for the site to look different proves nothing.
+
+While a link is broken, every content change needs a manual deploy after the push or
+the live site silently lags behind `main`:
 
 ```bash
 npm test                 # do not skip, nothing else gates the deploy
 npx -y @netlify/mcp@latest --site-id <site-id> --proxy-path "<proxy url>"
 ```
 
-To repair the link, check in this order:
+#### The remote in a fresh clone
 
-1. GitHub, organisation settings, third party access or installed GitHub Apps.
-   Confirm the **Netlify** app is installed and that its repository access includes
-   `Thika-art-collective-Studio`. This is the most likely culprit, because the same
-   settings change locked out a different app on the same day.
-2. Netlify, Project configuration, Build and deploy, Continuous deployment. If the
-   repository is still shown as linked, unlink and relink it. Netlify reads the build
-   command and publish directory from `netlify.toml`, so nothing needs typing.
-   Production branch is `main`.
-3. Push any small commit and confirm a build starts, rather than assuming. The
-   project's current deploy id changing is the signal.
-
-Neither step can be done from a coding session: both are UI actions in accounts this
-project does not hold credentials for.
+`origin` may still read `feiyahactionnetwork/...`, the pre transfer owner. That keeps
+working on GitHub's redirect, but the canonical path is
+`feiyah-action-network/Thika-art-collective-Studio` and is what a new clone should
+use.
 
 ### Custom domain
 
