@@ -39,7 +39,7 @@ const JOBS = [
   },
   {
     file: '88942778-418efa868cca4a30a6ef5b508fcfa8b5.jpeg',
-    out: 'public/images/programs/empowerment.webp',
+    out: 'public/images/programs/classes.webp',
     crop: { left: 0.02, top: 0.19, width: 0.8, height: 0.45 },
     width: 1200,
     note: 'The working wall, pinned studies and the paint bench'
@@ -61,7 +61,7 @@ const JOBS = [
   },
   {
     file: '9e5c41d4-IMG_0561.jpeg',
-    out: 'public/images/programs/recycling.webp',
+    out: 'public/images/programs/material.webp',
     crop: { left: 0, top: 0.17, width: 1, height: 0.56 },
     width: 1200,
     note: 'Finished collage panels lined up along the studio wall'
@@ -75,7 +75,7 @@ const JOBS = [
   },
   {
     file: 'c094268c-f0847aed043349b4b26f6d83f6e2bcc3.jpeg',
-    out: 'public/images/programs/income.webp',
+    out: 'public/images/programs/selling.webp',
     crop: { left: 0.005, top: 0, width: 0.99, height: 1 },
     width: 1200,
     note: 'Rider and cargo painted on a Soko maize meal sack'
@@ -196,7 +196,7 @@ const JOBS = [
   /* Context photographs, used to fill image slots that had none. */
   {
     file: '411ffff5-IMG_0617.jpeg',
-    out: 'public/images/programs/mentorship.webp',
+    out: 'public/images/programs/open-studio.webp',
     crop: { left: 0, top: 0.1, width: 1, height: 0.45 },
     width: 1200,
     note: 'Two people working in the studio with a finished panel between them'

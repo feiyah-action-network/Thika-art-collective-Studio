@@ -219,10 +219,15 @@ The following are placeholders and need the studio's real details:
   said, set in large type where they read as the studio's voice. The sections they
   sat beside are now single column. If the studio wants real quotations there, the
   layout takes them back easily, and the removed styling is in the git history.
-- Program tags on gallery pieces. Nothing is tagged yet, so the program filter hides
-  itself. Add `data-program` values to the figures and it reappears with no code
-  change.
-- A photograph for the mentorship program.
+- A photograph of a Saturday children's class. The class programme currently shows
+  the studio bench with a visible note saying it is not a class photograph.
+- Whether the studio runs anything like mentoring or paid teaching. An invented
+  "Skills Development and Mentorship" programme was removed because nothing
+  confirmed it. If it is real, it is a sixth programme waiting to be written.
+- Confirmation of how sale proceeds are split. An earlier draft claimed the larger
+  share goes to the maker. Nobody verified that, so it is gone from the programmes
+  page, though it does still appear on the contact page under "Buyers and
+  collectors" and should be checked or cut.
 - A street address in `contact.html`. The page gives Thika, Kiambu County and the
   Saturday open studio, but no street or building.
 - The site is indexable as of the launch on 2026 08 14. If anything above is still a
