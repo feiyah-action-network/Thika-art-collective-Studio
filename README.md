@@ -223,16 +223,8 @@ The following are placeholders and need the studio's real details:
   itself. Add `data-program` values to the figures and it reappears with no code
   change.
 - A photograph for the mentorship program.
-- Phone number and street address in `contact.html`. The invented `+254 7XX XXX XXX`
-  has been removed along with the whole Phone block, rather than left on a page
-  search engines index. Email and the contact form are the two routes in until a
-  real number is confirmed. Dennis Bull Ndegwa's portfolio carries a mobile that
-  would do, if he is happy for it to be public.
-- Social accounts. The placeholder Instagram, Facebook and TikTok links pointed at
-  `#` and have been removed rather than left dead. Add them back to
-  `partials/footer.html` and `contact.html` when there are real accounts to link.
-- The contact page carries a visible note saying a phone number and social accounts
-  are still to come. Remove it once they are there.
+- A street address in `contact.html`. The page gives Thika, Kiambu County and the
+  Saturday open studio, but no street or building.
 - The site is indexable as of the launch on 2026 08 14. If anything above is still a
   placeholder when search engines crawl, it will be cached that way, so the contact
   details are the urgent ones.
@@ -297,6 +289,11 @@ reporting to the studio. Outbound mail is signed.
 
 Both published addresses are live and have been delivered to:
 `hello@thikaartcollective.co.ke` and `dennisndegwabull@thikaartcollective.co.ke`.
+
+The phone number and the three social accounts in the footer and on the contact
+page are Dennis Bull Ndegwa's, taken from his portfolio and published at his
+request. The contact page says whose they are, so the site does not imply the
+studio holds accounts of its own.
 
 The DKIM key is 1024 bit, which is what Zoho issues by default. RFC 8301 asks for
 2048, and every major receiver still accepts 1024, so this is worth upgrading at
