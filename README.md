@@ -64,10 +64,16 @@ on the long edge and not square, so the browser downloaded pixels CSS then
 cropped away: 644 kB and 15s on the home page, more than double. If you add
 tiles, regenerate the thumbnails rather than reusing gallery files.
 
-The gallery holds 62 pieces and is still the heaviest page. On Slow 3G it still paints
-in 1.4s and transfers 359 kB, because only the 7 images near the viewport are
-fetched. The rest arrive as you scroll, which is why going from 48 pieces to 62
-changed those numbers by nothing at all. Image quality is deliberately not
+The table above predates John Ruitha Maina's six works. Adding them was measured
+as a before and after pair on one harness, which is the only way to compare: the
+home page did not move at all, the vision page went up about 8 kB and the gallery
+about 6 kB. Two of the home strip's tiles were swapped for his rather than simply
+appended, and the two they displaced moved to the end of the row, so the strip
+grew by two tiles on each page rather than by four.
+
+The gallery holds 68 pieces and is still the heaviest page, but only the 7 images
+near the viewport are fetched. The rest arrive as you scroll, which is why going
+from 48 pieces to 62, and then to 68, barely moved those numbers. Image quality is deliberately not
 traded down any further here: on a page whose entire purpose is showing
 artwork, a few kilobytes per image is the wrong saving.
 
@@ -186,6 +192,43 @@ No years are recorded for these, because the portfolio does not state any. Six a
 marked sold, which is transcribed from the portfolio and is a snapshot of when it
 was written rather than live stock.
 
+### The compiled images
+
+John Ruitha Maina's work came as a compilation with nothing in it but pictures:
+eight pages, one embedded JPEG each, no captions, no bookmarks and no extractable
+text at all.
+
+```bash
+node tools/process-ruitha.mjs             # reads source/works-john-ruitha.pdf
+```
+
+It writes six works into `public/images/gallery` at two widths each, writes the
+two photographs and the portrait he sent into `public/images/artists`, and leaves
+the markup data in `tools/ruitha-output.json`.
+
+Six works, not eight, because two of the eight pages are photographs rather than
+paintings, and the gallery is artwork. They sit in his profile panel on the
+artists page instead, under a line saying they are not paintings. Page 1 is his
+stand at a fair with visitors whose faces are legible, and it was held back on the
+first pass for the same consent reason that keeps `source/studio-group-photo.jpg`
+unpublished, then published when the studio was asked and said to add all of them.
+Page 2 is a composite of a black and white photograph of someone painting and a
+colour detail of the work in progress. It is very likely him, but the face is
+turned away and nothing in the file says so, so nothing on the page names the
+person in it.
+
+Because there was no text to transcribe, every title and every support named under
+these six is read off the photograph, and the gallery note says so in as many
+words. Four of them are signed "Ruitha 25" in the lower right. That is almost
+certainly 2025, but a year read off a brushstroke is not a year the artist stated,
+so none is printed. His biography, which he supplied separately, states no
+exhibition dates or venues, so his profile carries no exhibition list where Daniel
+Kabiaru's and Dennis Bull Ndegwa's do.
+
+The portrait is taller than it is wide with the head in the upper half, so it is
+cropped square from the top rather than the centre, which would take off the
+forehead.
+
 ### The work strips
 
 The home and vision pages each carry a band of work that drifts sideways with the
@@ -214,31 +257,42 @@ yet. It carries a "placeholder" mark in its corner and a visible "Photograph
 pending" tag on the page.
 
 The artist portraits and gallery tiles this script used to generate are gone. The
-artists page uses initial tiles instead, which read as a deliberate stand in rather
-than a face that is not the person's. Earlier revisions are in the git history.
+artists page uses an initial tile instead, which reads as a deliberate stand in
+rather than a face that is not the person's. One card still carries one, Peter
+Ndirangu's. Earlier revisions are in the git history.
 
 ## Before launch
 
 The following are placeholders and need the studio's real details:
 
-- Portraits, mediums and biographies for John Ruitha and Peter Ndirangu in
-  `artists.html`. Nothing is written on their behalf, so each card shows an initial
-  tile, a "Medium to be confirmed" line and a profile panel saying what is still
-  being collected. Daniel Kabiaru and Dennis Bull Ndegwa are filled in from the
-  catalogue and portfolio they supplied. George Kamiti has work images and a short
-  note but no portrait or biography yet, and Dennis has no portrait, because his
-  portfolio does not contain one.
-- Gallery titles for the 15 pieces that came from neither supplied document. Those
-  are descriptive stand ins written from the photographs, with materials read off
-  the images. Kabiaru's 33 and Ndegwa's 14 carry their own titles, mediums and
-  sizes. Three older sack paintings are attributed to Dennis Bull Ndegwa on the
-  strength of the Bull signature they carry but still have stand in titles, so they
-  are the obvious ones to name next.
+- A portrait, a medium and a biography for Peter Ndirangu in `artists.html`.
+  Nothing is written on his behalf, so his card shows an initial tile, a "Medium to
+  be confirmed" line and a profile panel saying what is still being collected.
+  Daniel Kabiaru, Dennis Bull Ndegwa and John Ruitha Maina are filled in from the
+  documents they supplied. George Kamiti has work images and a short note but no
+  portrait or biography yet, and Dennis has no portrait, because his portfolio does
+  not contain one.
+- Gallery titles for the 21 pieces that came from no supplied caption. Those are
+  descriptive stand ins written from the photographs, with materials read off the
+  images. Kabiaru's 33 and Ndegwa's 14 carry their own titles, mediums and sizes.
+  John Ruitha Maina's 6 do not, because the file he sent has no text in it at all,
+  so naming those is a short conversation with an artist who is already reachable.
+  Three older sack paintings are attributed to Dennis Bull Ndegwa on the strength
+  of the Bull signature they carry but still have stand in titles, so they are the
+  other obvious ones to name next.
 - Dennis Bull Ndegwa's portfolio ends with a contact page giving a personal mobile
   number, a personal Gmail address and three social handles. None of it is
   published. The handles are his artist accounts rather than the studio's, and
   publishing a personal mobile on an indexable site is his call to make, not one to
   make for him. Ask him which of it he wants on the site.
+- John Ruitha Maina's biography ends with a personal Gmail address, a personal
+  mobile number, an Instagram handle and a LinkedIn name. None of it is published.
+  That is the same call that was made for Dennis, whose details only went up once
+  he asked for them to, so ask John which of his he wants on the site.
+- The fair stand photograph on John Ruitha Maina's profile shows visitors whose
+  faces are legible. It is published because the studio asked for it, not because
+  anyone has confirmed those people agreed to it, which is a different thing. If
+  that matters to anyone in the picture it is a one line change to pull.
 - "Veiled figure" in the gallery is unattributed, but it is cardboard, poured paint
   and a hard band of colour, which is exactly Daniel Kabiaru's cardboard series. It
   is not in his catalogue, so it has been left unattributed. Worth asking him.

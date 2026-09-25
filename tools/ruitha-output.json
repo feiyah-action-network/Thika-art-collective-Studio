@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "boarding-at-the-stage",
+    "title": "Boarding at the stage",
+    "medium": "Acrylic on a Kenya Horticultural Exporters carton",
+    "materials": "cardboard packaging",
+    "width": 1000,
+    "height": 740,
+    "src": "/images/gallery/boarding-at-the-stage.webp",
+    "srcset": "/images/gallery/boarding-at-the-stage-500.webp 500w, /images/gallery/boarding-at-the-stage.webp 1000w"
+  },
+  {
+    "slug": "number-28",
+    "title": "Number 28",
+    "medium": "Acrylic on a Marie Biscuits carton",
+    "materials": "cardboard packaging",
+    "width": 667,
+    "height": 1000,
+    "src": "/images/gallery/number-28.webp",
+    "srcset": "/images/gallery/number-28-334.webp 334w, /images/gallery/number-28.webp 667w"
+  },
+  {
+    "slug": "three-matatus",
+    "title": "Three matatus",
+    "medium": "Acrylic on printed packing cardboard",
+    "materials": "cardboard packaging",
+    "width": 1000,
+    "height": 329,
+    "src": "/images/gallery/three-matatus.webp",
+    "srcset": "/images/gallery/three-matatus-500.webp 500w, /images/gallery/three-matatus.webp 1000w"
+  },
+  {
+    "slug": "two-on-stools",
+    "title": "Two on stools",
+    "medium": "Acrylic and pasted newsprint",
+    "materials": "paper",
+    "width": 1000,
+    "height": 1000,
+    "src": "/images/gallery/two-on-stools.webp",
+    "srcset": "/images/gallery/two-on-stools-500.webp 500w, /images/gallery/two-on-stools.webp 1000w"
+  },
+  {
+    "slug": "resting-on-the-bike",
+    "title": "Resting on the bike",
+    "medium": "Acrylic and pasted newsprint",
+    "materials": "paper",
+    "width": 1000,
+    "height": 839,
+    "src": "/images/gallery/resting-on-the-bike.webp",
+    "srcset": "/images/gallery/resting-on-the-bike-500.webp 500w, /images/gallery/resting-on-the-bike.webp 1000w"
+  },
+  {
+    "slug": "the-produce-stall",
+    "title": "The produce stall",
+    "medium": "Acrylic and pasted newsprint, two panels",
+    "materials": "paper",
+    "width": 1000,
+    "height": 643,
+    "src": "/images/gallery/the-produce-stall.webp",
+    "srcset": "/images/gallery/the-produce-stall-500.webp 500w, /images/gallery/the-produce-stall.webp 1000w"
+  }
+]
