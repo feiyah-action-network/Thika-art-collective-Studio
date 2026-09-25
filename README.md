@@ -202,17 +202,20 @@ text at all.
 node tools/process-ruitha.mjs             # reads source/works-john-ruitha.pdf
 ```
 
-It writes six works into `public/images/gallery` at two widths each, resizes the
-portrait he sent into `public/images/artists`, and leaves the markup data in
-`tools/ruitha-output.json`.
+It writes six works into `public/images/gallery` at two widths each, writes the
+two photographs and the portrait he sent into `public/images/artists`, and leaves
+the markup data in `tools/ruitha-output.json`.
 
-Six, not eight, because two of the pages are not artworks and are deliberately not
-published. Page 1 is a photograph of his stand at a fair with visitors whose faces
-are legible, which is the same consent problem as `source/studio-group-photo.jpg`.
+Six works, not eight, because two of the eight pages are photographs rather than
+paintings, and the gallery is artwork. They sit in his profile panel on the
+artists page instead, under a line saying they are not paintings. Page 1 is his
+stand at a fair with visitors whose faces are legible, and it was held back on the
+first pass for the same consent reason that keeps `source/studio-group-photo.jpg`
+unpublished, then published when the studio was asked and said to add all of them.
 Page 2 is a composite of a black and white photograph of someone painting and a
 colour detail of the work in progress. It is very likely him, but the face is
-turned away and nothing in the file says so, so it is not captioned as a portrait
-of anyone.
+turned away and nothing in the file says so, so nothing on the page names the
+person in it.
 
 Because there was no text to transcribe, every title and every support named under
 these six is read off the photograph, and the gallery note says so in as many
@@ -286,11 +289,10 @@ The following are placeholders and need the studio's real details:
   mobile number, an Instagram handle and a LinkedIn name. None of it is published.
   That is the same call that was made for Dennis, whose details only went up once
   he asked for them to, so ask John which of his he wants on the site.
-- Pages 1 and 2 of `source/works-john-ruitha.pdf` are not published. Page 1 shows
-  visitors at a fair whose faces are legible, and page 2 is probably him at the
-  easel but does not say so. Both would be worth having if he confirms them: an
-  installation shot and a working portrait are the two pictures the site is most
-  short of.
+- The fair stand photograph on John Ruitha Maina's profile shows visitors whose
+  faces are legible. It is published because the studio asked for it, not because
+  anyone has confirmed those people agreed to it, which is a different thing. If
+  that matters to anyone in the picture it is a one line change to pull.
 - "Veiled figure" in the gallery is unattributed, but it is cardboard, poured paint
   and a hard band of colour, which is exactly Daniel Kabiaru's cardboard series. It
   is not in his catalogue, so it has been left unattributed. Worth asking him.

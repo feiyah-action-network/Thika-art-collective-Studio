@@ -11,18 +11,21 @@
  * to transcribe. Everything written below the images on the site is therefore a
  * description read off the photograph, and the gallery note says so.
  *
- * Two of the eight pages are not artworks and are deliberately not published:
+ * Six of the eight pages are paintings. Two are photographs, and they go to
+ * public/images/artists rather than into the gallery, because the gallery is
+ * artwork and these are not:
  *
- *   page 1  a photograph of his stand at a fair, with visitors whose faces are
- *           legible. Consent for those people is unknown, the same reason
- *           source/studio-group-photo.jpg is still unpublished.
+ *   page 1  his stand at a fair, with visitors whose faces are legible. Held
+ *           back on the first pass for the same consent reason that keeps
+ *           source/studio-group-photo.jpg unpublished, then published when the
+ *           studio was asked and said to add all of them.
  *   page 2  a two part composite: a black and white photograph of someone in a
  *           bandana painting, next to a colour detail of the work in progress.
- *           Probably him at the easel, but the face is turned away and nothing
- *           in the file says so, so it is not captioned as a portrait.
+ *           Very likely him, but the face is turned away and nothing in the file
+ *           says so, so nothing on the page names the person in it.
  *
- * The remaining six are edge to edge photographs of the paintings with no
- * surrounding wall, so unlike the Ndegwa scans they need no trim.
+ * The six paintings are edge to edge photographs with no surrounding wall, so
+ * unlike the Ndegwa scans they need no trim.
  *
  * Signatures: pages 3, 4, 5 and 7 read "Ruitha 25" in the lower right. That is
  * almost certainly 2025, but reading a year off a brushstroke is not the same
@@ -62,6 +65,13 @@ const WORKS = [
   { page: 8, slug: 'the-produce-stall', title: 'The produce stall',
     medium: 'Acrylic and pasted newsprint, two panels',
     materials: 'paper' }
+];
+
+/* The two photographs. Not artwork, so they carry no title or medium and are
+   written beside the portrait rather than into the gallery. */
+const PHOTOGRAPHS = [
+  { page: 1, slug: 'john-ruitha-stand' },
+  { page: 2, slug: 'john-ruitha-at-work' }
 ];
 
 const FULL_WIDTH = 1000;
@@ -155,13 +165,36 @@ for (const work of WORKS) {
   console.log(`  ${work.slug.padEnd(24)} ${full}x${height}  (page ${work.page}, image ${photo.num})`);
 }
 
+const portraitDir = join(root, 'public/images/artists');
+mkdirSync(portraitDir, { recursive: true });
+
+for (const photo of PHOTOGRAPHS) {
+  const found = photographsOn(objects.get(order[photo.page - 1]).body)[0];
+
+  if (!found) {
+    console.error(`  MISS  page ${photo.page} for ${photo.slug}`);
+    process.exitCode = 1;
+    continue;
+  }
+
+  const meta = await sharp(found.bytes).rotate().metadata();
+  const full = Math.min(FULL_WIDTH, meta.width);
+  const half = Math.round(full / 2);
+  const height = Math.round((meta.height / meta.width) * full);
+
+  await sharp(found.bytes).rotate().resize({ width: full }).webp({ quality: 80 })
+    .toFile(join(portraitDir, `${photo.slug}.webp`));
+  await sharp(found.bytes).rotate().resize({ width: half }).webp({ quality: 78 })
+    .toFile(join(portraitDir, `${photo.slug}-${half}.webp`));
+
+  console.log(`  ${photo.slug.padEnd(24)} ${full}x${height}  (page ${photo.page}, image ${found.num})`);
+}
+
 /* The portrait came in the same handover. It is taller than it is wide and the
    head sits in the upper half, so it is cropped square from the top rather than
    from the centre, which would cut the forehead. */
 const portraitSource = join(root, 'source/john-ruitha-portrait.png');
 if (existsSync(portraitSource)) {
-  const portraitDir = join(root, 'public/images/artists');
-  mkdirSync(portraitDir, { recursive: true });
   const meta = await sharp(portraitSource).rotate().metadata();
   const side = Math.min(meta.width, meta.height);
 
