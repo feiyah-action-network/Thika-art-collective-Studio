@@ -27,12 +27,14 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 export const STRIPS = {
   home: [
     'noa-kisu-nanasi-ni-mia', 'tumetoka-shopping', 'untitled-13', 'mama-chai',
-    'boda-ya-stima', 'coloured-pots', 'early-morning-school-rush', 'the-sunglasses',
-    'fragrance-time-was-meant-to-tell', 'makaa-imepanda-bei', 'baba-yao', 'pride-in-stride-2'
+    'two-on-stools', 'coloured-pots', 'early-morning-school-rush', 'the-sunglasses',
+    'fragrance-time-was-meant-to-tell', 'number-28', 'baba-yao', 'pride-in-stride-2',
+    'boda-ya-stima', 'makaa-imepanda-bei'
   ],
   vision: [
-    'all-the-hats', 'hii-bill-yote', 'my-ride-awaits', 'mahamri-ni-10', 'untitled-9',
-    'the-baskets-i-sell', 'ama-nirudi-chuo', 'mitumba', 'as-we-fetch-water', 'my-love-for-soccer'
+    'all-the-hats', 'hii-bill-yote', 'resting-on-the-bike', 'mahamri-ni-10', 'untitled-9',
+    'the-baskets-i-sell', 'ama-nirudi-chuo', 'boarding-at-the-stage', 'as-we-fetch-water',
+    'my-love-for-soccer', 'my-ride-awaits', 'mitumba'
   ]
 };
 
