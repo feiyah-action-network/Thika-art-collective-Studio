@@ -214,6 +214,25 @@ const JOBS = [
     crop: { left: 0, top: 0.17, width: 1, height: 0.56 },
     width: 1400,
     note: 'Stitched panels hung and stacked along the studio wall'
+  },
+
+  /* The Saturday children's class. Until these arrived the class had no
+     photograph of itself and the slot carried a picture of the bench with a
+     "not a class" tag on it, which is now gone. The two frames of the class are
+     seconds apart and all but identical, so only one is used. */
+  {
+    file: 'b6130791-image.jpg',
+    out: 'public/images/programs/classes.webp',
+    crop: { left: 0.13, top: 0.02, width: 0.8, height: 0.8 },
+    width: 1200,
+    note: 'Dennis Bull Ndegwa with three children drawing at the long table'
+  },
+  {
+    file: '977df57b-image.jpg',
+    out: 'public/images/studio/the-long-room.webp',
+    crop: { left: 0, top: 0.2, width: 1, height: 0.45 },
+    width: 1400,
+    note: 'The length of the studio, someone working at the far end under pinned studies'
   }
 ];
 
