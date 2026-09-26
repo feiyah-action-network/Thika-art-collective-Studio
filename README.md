@@ -249,6 +249,22 @@ a row the visitor can push through by hand. Only once the scroll animation is
 actually wired up does the script add `is-animated`, which is what takes the
 scrollbar away.
 
+### The class photographs
+
+Three photographs of a Saturday children's class arrived with the studio's own
+class flyer, and they are the first pictures of a programme actually running
+rather than of the room it runs in. Two of the three are the same moment seconds
+apart, so only one is used: `public/images/programs/classes.webp`, which replaced
+a picture of the bench that had to carry a "not a class" tag to stay honest. The
+third is the length of the studio, and it took over the vision page feature slot
+from `wall-of-work.webp`, which the artists page was already using.
+
+The flyer is where the class details on the site come from: every Saturday, 11am
+to 2pm, at Thika Town Main Stage, enquiries on the two numbers it prints. None of
+that was on the site before, and none of it is inferred.
+
+The three children's faces are legible. See the note under "Before launch".
+
 ### Still generated placeholders
 
 `tools/make-placeholders.mjs` now produces one file,
@@ -305,8 +321,11 @@ The following are placeholders and need the studio's real details:
   said, set in large type where they read as the studio's voice. The sections they
   sat beside are now single column. If the studio wants real quotations there, the
   layout takes them back easily, and the removed styling is in the git history.
-- A photograph of a Saturday children's class. The class programme currently shows
-  the studio bench with a visible note saying it is not a class photograph.
+- Whether the parents of the three children in the Saturday class photograph are
+  happy for it to be on a public, indexable page. Their faces are legible. The
+  studio sent the photograph for this purpose, which is not the same thing as
+  those families having agreed, so it is worth one message before it settles into
+  a search index. Swapping it back is one line.
 - Whether the studio runs anything like mentoring or paid teaching. An invented
   "Skills Development and Mentorship" programme was removed because nothing
   confirmed it. If it is real, it is a sixth programme waiting to be written.
@@ -314,8 +333,9 @@ The following are placeholders and need the studio's real details:
   share goes to the maker. Nobody verified that, so it is gone from the programmes
   page, though it does still appear on the contact page under "Buyers and
   collectors" and should be checked or cut.
-- A street address in `contact.html`. The page gives Thika, Kiambu County and the
-  Saturday open studio, but no street or building.
+- A street or building in `contact.html`. The page now gives Thika Town Main Stage,
+  which is what the studio's own class flyer gives and is enough to find the place,
+  but there is still no street name or building number.
 - The site is indexable as of the launch on 2026 08 14. If anything above is still a
   placeholder when search engines crawl, it will be cached that way, so the contact
   details are the urgent ones.
