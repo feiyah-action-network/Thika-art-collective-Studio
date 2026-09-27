@@ -233,6 +233,59 @@ const JOBS = [
     crop: { left: 0, top: 0.2, width: 1, height: 0.45 },
     width: 1400,
     note: 'The length of the studio, someone working at the far end under pinned studies'
+  },
+
+  /* The studio's "Website photos" Drive folder: 50 frames from a Canon EOS RP,
+     developed in Lightroom, where everything before this was a phone snap
+     against a wall. Five of them are works already in the gallery, so those
+     entries point at the better photograph and keep their titles. The rest of
+     that folder is a separate question, because most of it is work whose
+     artist nobody here has confirmed. See "Before launch" in the README.
+
+     These live alongside the entries above but come from a different source
+     directory, so a run prints "missing source" for whichever set is not in
+     the directory you point at. That is expected. */
+  {
+    file: 'IMG_0579.jpg',
+    out: 'public/images/gallery/two-in-white.webp',
+    crop: { left: 0, top: 0, width: 1, height: 1 },
+    width: 1100,
+    note: 'Two figures in white against a deep blue swirl, oil on canvas'
+  },
+  {
+    file: 'IMG_0583.jpg',
+    out: 'public/images/gallery/asleep-on-the-grass.webp',
+    crop: { left: 0, top: 0, width: 1, height: 1 },
+    width: 1200,
+    note: 'Figure asleep on swirling green grass with a toy bear'
+  },
+  {
+    file: 'IMG_0587.jpg',
+    out: 'public/images/gallery/label-hair-on-blue.webp',
+    crop: { left: 0, top: 0, width: 1, height: 1 },
+    width: 900,
+    note: 'Stitched figure in maroon leather, hair from bleached tin labels, blue ground'
+  },
+  {
+    file: 'IMG_0627.jpg',
+    out: 'public/images/gallery/shields-and-fire.webp',
+    crop: { left: 0, top: 0, width: 1, height: 1 },
+    width: 1200,
+    note: 'Painting on canvas, riot shields, flames and a fleeing figure'
+  },
+  {
+    file: 'IMG_0644.jpg',
+    out: 'public/images/gallery/rider-with-cargo.webp',
+    crop: { left: 0.11, top: 0.17, width: 0.78, height: 0.66 },
+    width: 1100,
+    note: 'Rider carrying boxes, painted on a Soko sack, signed Bull. Cropped to the mount'
+  },
+  {
+    file: 'IMG_0550.jpg',
+    out: 'public/images/programs/material.webp',
+    crop: { left: 0.05, top: 0.02, width: 0.9, height: 0.98 },
+    width: 1200,
+    note: 'The bench: cut leather, brass rosettes, tin discs and tools, hands at work'
   }
 ];
 

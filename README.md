@@ -249,6 +249,31 @@ a row the visitor can push through by hand. Only once the scroll animation is
 actually wired up does the script add `is-animated`, which is what takes the
 scrollbar away.
 
+### The Drive folder
+
+The studio shared a Drive folder called "Website photos": 50 frames from a Canon
+EOS RP developed in Lightroom, where every photograph before this was a phone
+snap against a wall. It breaks down as:
+
+- **5 works already in the gallery**, photographed properly. `two-in-white`,
+  `asleep-on-the-grass`, `label-hair-on-blue`, `shields-and-fire` and
+  `rider-with-cargo` now point at those frames and keep their titles. Same works,
+  same captions, better pictures. `IMG_0550`, the bench covered in cut leather,
+  brass rosettes, tin discs and tools, replaced the collage panel wall as the
+  Salvaged Material photograph, because it shows material rather than finished
+  work.
+- **16 process photographs**: leather being cut and laid out, a piece coming
+  together on the mat, someone drawing in a red jacket, two wide shots of the
+  room. Not used yet, because most of them show a face and nobody has confirmed
+  whose.
+- **29 works that are not on the site at all.** Not added, because attribution
+  is unresolved. See below.
+
+The filenames are no guide to anything. This set and the earlier phone set both
+run IMG_05xx to IMG_06xx and collide: the site's `two-in-white` came from a file
+called IMG_0623, and `IMG_0623.jpg` in this folder is a completely different
+painting of a crying face. Match by eye, never by number.
+
 ### The class photographs
 
 Three photographs of a Saturday children's class arrived with the studio's own
@@ -321,6 +346,20 @@ The following are placeholders and need the studio's real details:
   said, set in large type where they read as the studio's voice. The sections they
   sat beside are now single column. If the studio wants real quotations there, the
   layout takes them back easily, and the removed styling is in the git history.
+- Who made the 29 works in the Drive folder that are not on the site. The studio
+  said "most are George's", but George Kamiti's entry here is stitched metal and
+  salvaged packaging, and most of that folder is oil and acrylic on canvas:
+  turbaned heads in palette knife, animals, a run of figures dissolving into
+  colour swirls, two tuk tuks, a koi. Some of it is plainly not his. Two portraits
+  with rings, `IMG_0636` and `IMG_0637`, are signed Bull, so those are Dennis Bull
+  Ndegwa's. The swirl canvases are the same hand as `two-in-white` and
+  `asleep-on-the-grass`, which have sat in the gallery unattributed since launch,
+  so naming that one artist would settle about a dozen pieces at once. Nothing
+  goes up until someone says whose is whose.
+- Whether the man at the bench in the Drive folder's process photographs is George
+  Kamiti. If he is, they are the first real pictures of him, and his card still
+  shows a painting with "Work, not a portrait" on it because his portfolio never
+  had one.
 - Whether the parents of the three children in the Saturday class photograph are
   happy for it to be on a public, indexable page. Their faces are legible. The
   studio sent the photograph for this purpose, which is not the same thing as
