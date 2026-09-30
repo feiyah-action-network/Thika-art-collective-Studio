@@ -71,9 +71,9 @@ about 6 kB. Two of the home strip's tiles were swapped for his rather than simpl
 appended, and the two they displaced moved to the end of the row, so the strip
 grew by two tiles on each page rather than by four.
 
-The gallery holds 68 pieces and is still the heaviest page, but only the 7 images
+The gallery holds 89 pieces and is still the heaviest page, but only the 7 images
 near the viewport are fetched. The rest arrive as you scroll, which is why going
-from 48 pieces to 62, and then to 68, barely moved those numbers. Image quality is deliberately not
+from 48 pieces to 62, then 68, then 89, barely moved those numbers. Image quality is deliberately not
 traded down any further here: on a page whose entire purpose is showing
 artwork, a few kilobytes per image is the wrong saving.
 
@@ -274,6 +274,49 @@ run IMG_05xx to IMG_06xx and collide: the site's `two-in-white` came from a file
 called IMG_0623, and `IMG_0623.jpg` in this folder is a completely different
 painting of a crying face. Match by eye, never by number.
 
+### George Kamiti's folder
+
+A second Drive folder, and this one is entirely his. The studio confirmed both
+that the work is his and that he is the man in the process photographs from the
+first folder, which is what let any of it go up under his name.
+
+```bash
+node tools/process-kamiti.mjs <source-directory>
+```
+
+Point it at a directory holding that folder plus `IMG_0551` from the first one,
+which is the frame his portrait is cut from. It writes 26 works into
+`public/images/gallery` at two widths each, writes the portrait into
+`public/images/artists`, and leaves the markup data in `tools/kamiti-output.json`.
+
+The filenames are the titles, which is the first time any of his work has had
+one. Two look like slips, "Sunlt melanin" and "The matriach", and they are left
+as given rather than corrected on his behalf. No medium, size or year came with
+any of them, so the line under each title describes only what the photograph
+shows.
+
+Five of the 26 were already in the gallery under descriptive stand in titles.
+They keep their slug, so no link breaks, and gain the title he gave them:
+
+| slug | was | now |
+| --- | --- | --- |
+| `seed-packet-portrait` | Seed packet crown | Woven sun and copper |
+| `tomato-paste-crown` | Tomato paste crown | Obsidian flame |
+| `bottle-top-portrait` | Bottle top portrait | The matriach |
+| `label-hair-on-blue` | Bleached labels | The golden age |
+| `stitched-profile` | Stitched profile | The ancestral breath |
+
+The last of those was also on its side. The old photograph was taken with the
+work lying flat, so the site had been describing a "reclining figure" that is
+actually upright with its head tilted back. Five stand in titles gone, and one
+work the right way up.
+
+The folder also changed what his entry says he does. It was "stitched metal and
+salvaged packaging", which missed the G-avants series: wearable leather bodices
+built up with brass rosettes, shell, beadwork and salvaged fittings. Five of
+those are in the gallery now. Four more frames of untitled wearables came with
+them and are not up, because there is nothing to call them yet.
+
 ### The class photographs
 
 Three photographs of a Saturday children's class arrived with the studio's own
@@ -310,17 +353,18 @@ The following are placeholders and need the studio's real details:
   Nothing is written on his behalf, so his card shows an initial tile, a "Medium to
   be confirmed" line and a profile panel saying what is still being collected.
   Daniel Kabiaru, Dennis Bull Ndegwa and John Ruitha Maina are filled in from the
-  documents they supplied. George Kamiti has work images and a short note but no
-  portrait or biography yet, and Dennis has no portrait, because his portfolio does
-  not contain one.
-- Gallery titles for the 21 pieces that came from no supplied caption. Those are
+  documents they supplied, and George Kamiti from his own folder and a photograph
+  of him at the bench. Dennis still has no portrait, because his portfolio does not
+  contain one.
+- Gallery titles for the 16 pieces that came from no supplied caption. Those are
   descriptive stand ins written from the photographs, with materials read off the
-  images. Kabiaru's 33 and Ndegwa's 14 carry their own titles, mediums and sizes.
-  John Ruitha Maina's 6 do not, because the file he sent has no text in it at all,
-  so naming those is a short conversation with an artist who is already reachable.
-  Three older sack paintings are attributed to Dennis Bull Ndegwa on the strength
-  of the Bull signature they carry but still have stand in titles, so they are the
-  other obvious ones to name next.
+  images. Kabiaru's 33 and Ndegwa's 14 carry their own titles, mediums and sizes,
+  and Kamiti's 26 carry titles but no medium, size or year. John Ruitha Maina's 6
+  have none of it, because the file he sent has no text in it at all, so naming
+  those is a short conversation with an artist who is already reachable. Three
+  older sack paintings are attributed to Dennis Bull Ndegwa on the strength of the
+  Bull signature they carry but still have stand in titles, so they are the other
+  obvious ones to name next.
 - Dennis Bull Ndegwa's portfolio ends with a contact page giving a personal mobile
   number, a personal Gmail address and three social handles. None of it is
   published. The handles are his artist accounts rather than the studio's, and
@@ -346,20 +390,22 @@ The following are placeholders and need the studio's real details:
   said, set in large type where they read as the studio's voice. The sections they
   sat beside are now single column. If the studio wants real quotations there, the
   layout takes them back easily, and the removed styling is in the git history.
-- Who made the 29 works in the Drive folder that are not on the site. The studio
-  said "most are George's", but George Kamiti's entry here is stitched metal and
-  salvaged packaging, and most of that folder is oil and acrylic on canvas:
-  turbaned heads in palette knife, animals, a run of figures dissolving into
-  colour swirls, two tuk tuks, a koi. Some of it is plainly not his. Two portraits
-  with rings, `IMG_0636` and `IMG_0637`, are signed Bull, so those are Dennis Bull
-  Ndegwa's. The swirl canvases are the same hand as `two-in-white` and
-  `asleep-on-the-grass`, which have sat in the gallery unattributed since launch,
-  so naming that one artist would settle about a dozen pieces at once. Nothing
-  goes up until someone says whose is whose.
-- Whether the man at the bench in the Drive folder's process photographs is George
-  Kamiti. If he is, they are the first real pictures of him, and his card still
-  shows a painting with "Work, not a portrait" on it because his portfolio never
-  had one.
+- Who made the 29 works in the first Drive folder that are not on the site. That
+  question is still open, and the second folder narrowed it rather than answering
+  it: George's own work turned out to be the stitched collage and the leather, so
+  the oil and acrylic canvases in the first folder are somebody else's. Turbaned
+  heads in palette knife, animals, a run of figures dissolving into colour swirls,
+  two tuk tuks, a koi. Two portraits with rings, `IMG_0636` and `IMG_0637`, are
+  signed Bull, so those are Dennis Bull Ndegwa's. The swirl canvases are the same
+  hand as `two-in-white` and `asleep-on-the-grass`, which have sat in the gallery
+  unattributed since launch, so naming that one artist would settle about a dozen
+  pieces at once. Nothing goes up until someone says whose is whose.
+- Titles for the four untitled wearables in George Kamiti's folder,
+  `IMG_0538`, `IMG_0539-2`, `IMG_0540` and `IMG_0541`. Everything else in that
+  folder is named, so these look like an oversight rather than a decision.
+- A statement from George Kamiti in his own words. His profile is now written
+  from his photographs and from what the studio confirmed, which is honest but is
+  not him speaking, the way Dennis's and John's panels are.
 - Whether the parents of the three children in the Saturday class photograph are
   happy for it to be on a public, indexable page. Their faces are legible. The
   studio sent the photograph for this purpose, which is not the same thing as
