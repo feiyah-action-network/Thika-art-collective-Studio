@@ -198,10 +198,10 @@
     "size": "40 x 40 cm",
     "year": 2025,
     "materials": "cardboard",
-    "width": 704,
-    "height": 671,
+    "width": 671,
+    "height": 647,
     "src": "/images/gallery/mali-kwa-mali-1.webp",
-    "srcset": "/images/gallery/mali-kwa-mali-1-352.webp 352w, /images/gallery/mali-kwa-mali-1.webp 704w"
+    "srcset": "/images/gallery/mali-kwa-mali-1-336.webp 336w, /images/gallery/mali-kwa-mali-1.webp 671w"
   },
   {
     "slug": "the-dreamer",
@@ -210,10 +210,10 @@
     "size": "40 x 40 cm",
     "year": 2025,
     "materials": "cardboard",
-    "width": 656,
-    "height": 687,
+    "width": 677,
+    "height": 669,
     "src": "/images/gallery/the-dreamer.webp",
-    "srcset": "/images/gallery/the-dreamer-328.webp 328w, /images/gallery/the-dreamer.webp 656w"
+    "srcset": "/images/gallery/the-dreamer-339.webp 339w, /images/gallery/the-dreamer.webp 677w"
   },
   {
     "slug": "skuma-isonge-mbele",
@@ -222,10 +222,10 @@
     "size": "40 x 40 cm",
     "year": 2025,
     "materials": "cardboard",
-    "width": 680,
-    "height": 691,
+    "width": 672,
+    "height": 671,
     "src": "/images/gallery/skuma-isonge-mbele.webp",
-    "srcset": "/images/gallery/skuma-isonge-mbele-340.webp 340w, /images/gallery/skuma-isonge-mbele.webp 680w"
+    "srcset": "/images/gallery/skuma-isonge-mbele-336.webp 336w, /images/gallery/skuma-isonge-mbele.webp 672w"
   },
   {
     "slug": "all-the-hats",
@@ -330,10 +330,10 @@
     "size": "40 x 40 cm",
     "year": 2026,
     "materials": "cardboard",
-    "width": 598,
-    "height": 638,
+    "width": 655,
+    "height": 650,
     "src": "/images/gallery/mama-mahamri.webp",
-    "srcset": "/images/gallery/mama-mahamri-299.webp 299w, /images/gallery/mama-mahamri.webp 598w"
+    "srcset": "/images/gallery/mama-mahamri-328.webp 328w, /images/gallery/mama-mahamri.webp 655w"
   },
   {
     "slug": "mitumba",
@@ -342,10 +342,10 @@
     "size": "40 x 40 cm",
     "year": 2026,
     "materials": "cardboard",
-    "width": 684,
-    "height": 634,
+    "width": 682,
+    "height": 647,
     "src": "/images/gallery/mitumba.webp",
-    "srcset": "/images/gallery/mitumba-342.webp 342w, /images/gallery/mitumba.webp 684w"
+    "srcset": "/images/gallery/mitumba-341.webp 341w, /images/gallery/mitumba.webp 682w"
   },
   {
     "slug": "my-love-for-soccer",
@@ -378,10 +378,10 @@
     "size": "40 x 40 cm",
     "year": 2026,
     "materials": "cardboard",
-    "width": 672,
-    "height": 658,
+    "width": 675,
+    "height": 670,
     "src": "/images/gallery/the-baskets-i-sell.webp",
-    "srcset": "/images/gallery/the-baskets-i-sell-336.webp 336w, /images/gallery/the-baskets-i-sell.webp 672w"
+    "srcset": "/images/gallery/the-baskets-i-sell-338.webp 338w, /images/gallery/the-baskets-i-sell.webp 675w"
   },
   {
     "slug": "what-it-takes",
