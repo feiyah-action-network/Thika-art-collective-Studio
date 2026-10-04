@@ -83,13 +83,13 @@ const WORKS = [
     crop: { left: 0.20, top: 0.19, width: 0.59, height: 0.62 } },
   { page: 16, slug: 'mali-kwa-mali-1', title: 'Mali kwa mali 1',
     medium: 'Acrylic on cardboard', size: '40 x 40 cm', year: 2025, materials: 'cardboard',
-    crop: { left: 0.255, top: 0.295, width: 0.595, height: 0.425 } },
+    crop: { left: 0.205, top: 0.308, width: 0.567, height: 0.410 } },
   { page: 17, slug: 'the-dreamer', title: 'The dreamer',
     medium: 'Acrylic on cardboard', size: '40 x 40 cm', year: 2025, materials: 'cardboard',
-    crop: { left: 0.24, top: 0.31, width: 0.56, height: 0.44 } },
+    crop: { left: 0.223, top: 0.313, width: 0.578, height: 0.428 } },
   { page: 18, slug: 'skuma-isonge-mbele', title: 'Skuma isonge mbele',
     medium: 'Acrylic on cardboard', size: '40 x 40 cm', year: 2025, materials: 'cardboard',
-    crop: { left: 0.28, top: 0.28, width: 0.59, height: 0.45 } },
+    crop: { left: 0.223, top: 0.265, width: 0.583, height: 0.437 } },
   { page: 19, slug: 'all-the-hats', title: 'All the hats',
     medium: 'Acrylic on cardboard', size: '40 x 40 cm', year: 2025, materials: 'cardboard' },
   { page: 20, slug: 'mama-chai', title: 'Mama chai',
@@ -108,10 +108,10 @@ const WORKS = [
     medium: 'Acrylic on cardboard', size: '75 x 75 cm', year: 2026, materials: 'cardboard' },
   { page: 27, slug: 'mama-mahamri', title: 'Mama mahamri',
     medium: 'Acrylic on cardboard', size: '40 x 40 cm', year: 2026, materials: 'cardboard',
-    crop: { left: 0.26, top: 0.32, width: 0.50, height: 0.40 } },
+    crop: { left: 0.223, top: 0.303, width: 0.548, height: 0.408 } },
   { page: 28, slug: 'mitumba', title: 'Mitumba',
     medium: 'Acrylic on cardboard', size: '40 x 40 cm', year: 2026, materials: 'cardboard',
-    crop: { left: 0.26, top: 0.28, width: 0.575, height: 0.40 } },
+    crop: { left: 0.208, top: 0.253, width: 0.573, height: 0.408 } },
   { page: 29, slug: 'my-love-for-soccer', title: 'My love for soccer',
     medium: 'Cardboard', size: '40 x 30 x 50 cm', year: 2025, materials: 'cardboard',
     crop: { left: 0.08, top: 0.03, width: 0.72, height: 0.94 } },
@@ -119,7 +119,7 @@ const WORKS = [
     medium: 'Acrylic on cardboard', size: '40 x 40 cm', year: 2026, materials: 'cardboard' },
   { page: 31, slug: 'the-baskets-i-sell', title: 'The baskets I sell',
     medium: 'Acrylic on cardboard', size: '40 x 40 cm', year: 2026, materials: 'cardboard',
-    crop: { left: 0.28, top: 0.30, width: 0.585, height: 0.43 } },
+    crop: { left: 0.223, top: 0.293, width: 0.588, height: 0.438 } },
 
   /* Page 32 is the same work as page 27, photographed a second time. The
      larger of the two photographs is the one above. */
@@ -237,15 +237,25 @@ for (const work of WORKS) {
   console.log(`  ${work.slug.padEnd(34)} ${full}x${height}  (page ${work.page})`);
 }
 
-/* The artist's own photograph came with the catalogue, so it belongs to the
-   same run. It is already square and tight, and only needs resizing. */
+/* The artist's own photograph belongs to the same run. The first one he sent
+   was already square; the one that replaced it is landscape, so this cuts a
+   centred square rather than assuming either shape. The artist cards are
+   square, so the crop has to happen somewhere. */
 const portraitSource = join(root, 'source/dan-kabiaru-portrait.jpg');
 if (existsSync(portraitSource)) {
   const portraitDir = join(root, 'public/images/artists');
   mkdirSync(portraitDir, { recursive: true });
+  const upright = await sharp(portraitSource).rotate().toBuffer({ resolveWithObject: true });
+  const side = Math.min(upright.info.width, upright.info.height);
+  const region = {
+    left: Math.round((upright.info.width - side) / 2),
+    top: Math.round((upright.info.height - side) / 2),
+    width: side,
+    height: side
+  };
   for (const width of [600, 300]) {
     const name = width === 600 ? 'dan-kabiaru.webp' : `dan-kabiaru-${width}.webp`;
-    await sharp(portraitSource).rotate().resize({ width }).webp({ quality: 82 })
+    await sharp(upright.data).extract(region).resize({ width }).webp({ quality: 82 })
       .toFile(join(portraitDir, name));
   }
   console.log('  dan-kabiaru portrait               600 and 300 wide');

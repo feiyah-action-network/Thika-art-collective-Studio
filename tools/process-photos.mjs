@@ -122,10 +122,18 @@ const JOBS = [
     width: 1200,
     note: 'Painting on canvas, riot shields, flames and a fleeing figure'
   },
+  /* "Veiled figure" is the one original that is gone. Originals from this
+     phone batch were never committed, on the reasoning that the studio could
+     always re-supply them, and this is the file that proved the reasoning
+     wrong. The entry stays so the crop is on record if IMG_0669 ever turns up.
+     Until it does, tools/recrop-veiled-figure.mjs owns that image and works
+     from the WebP the site was already serving, which is all that is left of
+     it. Running this script will not overwrite it, because the source is not
+     there to read. */
   {
     file: '8d30568c-IMG_0669.jpeg',
     out: 'public/images/gallery/veiled-figure.webp',
-    crop: { left: 0.02, top: 0.11, width: 0.77, height: 0.58 },
+    crop: { left: 0.0624, top: 0.11, width: 0.7224, height: 0.58 },
     width: 1000,
     note: 'Cardboard cut figure over a poured black and white ground'
   },

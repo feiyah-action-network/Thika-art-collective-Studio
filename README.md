@@ -162,6 +162,19 @@ hanging on. Those crops were read off a labelled percentage grid rendered over
 each photograph. Two automatic detectors were tried first and both mis-cropped
 the wall-heavy shots, which is worth knowing before anyone tries again.
 
+Six of those hand read crops were wrong and have been redone: Mali kwa mali 1,
+The dreamer, Skuma isonge mbele, Mama mahamri, Mitumba and The baskets I sell.
+Each was reading five or six percent too far right, so it cut into the left edge
+of the board and took in frame and wall on the other side. The giveaway is the
+shape of the output: all six are 40 x 40 cm works, and all six now come out
+within a few pixels of square, where before they were visibly lopsided. If a
+crop here ever needs checking, compare the aspect ratio of the file against the
+size printed in the catalogue before looking at anything else.
+
+The portrait step cuts a centred square. The first photograph the artist sent
+was already square, so it did not have to; the one that replaced it is
+landscape, and the artist cards are square.
+
 Every title, medium, size and year in `WORKS` is transcribed from the caption the
 studio printed under that piece, including its spelling. Nothing is inferred.
 
@@ -248,6 +261,26 @@ scrollable element, so no JavaScript, a failed bundle and reduced motion all lea
 a row the visitor can push through by hand. Only once the scroll animation is
 actually wired up does the script add `is-animated`, which is what takes the
 scrollbar away.
+
+### The one lost original
+
+`source/veiled-figure-as-received.webp` is not a source in the sense every other
+file in `source/` is. It is the 1000px WebP the site was serving, kept because
+the original photograph, `8d30568c-IMG_0669.jpeg`, no longer exists anywhere.
+Originals from that first phone batch were never committed, on the reasoning
+that the studio could always re-supply them, and this is the file that proved
+the reasoning wrong.
+
+```bash
+node tools/recrop-veiled-figure.mjs
+```
+
+That script owns the image now. It trims the red wall stripe that ran down the
+left edge, and that is all it can do: the work was photographed leaning against
+a wall at an angle, with its top and right edges already outside the frame. No
+crop puts those back, so this one wants re-shooting. The `JOBS` entry in
+`tools/process-photos.mjs` stays, with its crop translated into the same result,
+in case IMG_0669 ever turns up.
 
 ### The Drive folder
 
