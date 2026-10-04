@@ -512,6 +512,17 @@ canonical, so the two are not indexed as duplicates.
 cache headers on fingerprinted assets and fonts. Any static host works, the build
 output is plain files.
 
+Images are the exception and it is worth knowing why. `/assets/*` and `/fonts/*`
+carry a content hash in the filename, so they are immutable for a year. Images
+do not: a file keeps its name when its contents change, and here that happens
+constantly, because crops get corrected and work gets rephotographed. They were
+on a week of hard caching, which meant a corrected image was invisible for a
+week to anyone who had already seen the page, including the studio checking
+whether the fix had landed. They are now on an hour, then a week of
+`stale-while-revalidate`, so a repeat visit still paints instantly from cache
+while the new file arrives behind it. If images are ever fingerprinted properly,
+put this back to a year.
+
 Mail is on Zoho. DNS lives in Netlify DNS and carries the three Zoho MX records,
 an SPF record, a DKIM key on the selector `art`, and a DMARC policy of `p=none`
 reporting to the studio. Outbound mail is signed.
