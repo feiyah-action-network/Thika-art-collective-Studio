@@ -96,6 +96,15 @@ tests/          asset check, browser checks, and the runner that serves dist
 `<!-- include: partials/header.html -->`. The same plugin marks the current page in
 the navigation with `aria-current`, so no client side code is involved.
 
+Two more plugins live beside it. `sitemap()` writes `dist/sitemap.xml` from the
+same `PAGES` list the canonical tags come from. `hashedImages()` content hashes
+everything under `public/images` after the build and rewrites the references in
+the built pages, so `dan-kabiaru.webp` ships as `dan-kabiaru.1c628412.webp`. It
+only runs on build: the dev server keeps serving the plain paths out of
+`public/`, and the markup you write keeps the plain names. It prints a count,
+and names any image no page references, which is how orphaned half sizes get
+noticed now rather than three commits later.
+
 ## Design language
 
 The palette is sampled from the material the studio works with: seed packet green,
@@ -512,16 +521,16 @@ canonical, so the two are not indexed as duplicates.
 cache headers on fingerprinted assets and fonts. Any static host works, the build
 output is plain files.
 
-Images are the exception and it is worth knowing why. `/assets/*` and `/fonts/*`
-carry a content hash in the filename, so they are immutable for a year. Images
-do not: a file keeps its name when its contents change, and here that happens
-constantly, because crops get corrected and work gets rephotographed. They were
-on a week of hard caching, which meant a corrected image was invisible for a
-week to anyone who had already seen the page, including the studio checking
-whether the fix had landed. They are now on an hour, then a week of
-`stale-while-revalidate`, so a repeat visit still paints instantly from cache
-while the new file arrives behind it. If images are ever fingerprinted properly,
-put this back to a year.
+Images are cached for a year and marked immutable, the same as the bundles and
+the fonts, because they carry a content hash too. That was not always true, and
+the reason it is worth the plugin is this: an image keeps its name when its
+contents change, and on this site that happens constantly, because crops get
+corrected and work gets rephotographed. For a while images were on a week of
+hard caching, which meant a corrected image stayed invisible for a week to
+anyone who had already seen the page, including the studio checking whether the
+fix had landed. Shortening the header fixed the staleness by giving up caching
+on the heaviest part of the site. Hashing fixes both ends, so it went back to a
+year.
 
 Mail is on Zoho. DNS lives in Netlify DNS and carries the three Zoho MX records,
 an SPF record, a DKIM key on the selector `art`, and a DMARC policy of `p=none`
