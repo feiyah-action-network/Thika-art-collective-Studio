@@ -19,21 +19,15 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Images are NOT fingerprinted. /assets/* and /fonts/* carry a content hash in
-# the filename, so they can be immutable for a year. An image keeps its name
-# when its contents change, which happens often here: a crop gets corrected, a
-# work is rephotographed, an artist sends a better portrait. With a week of hard
-# caching, anyone who had seen the page kept the old picture for a week and the
-# studio could not tell whether a fix had deployed.
-#
-# So: an hour of hard caching, then a week in which the browser shows the copy
-# it has instantly and fetches the new one in the background. Repeat visits
-# still cost nothing, and a correction is visible the same day instead of the
-# next week.
+# Images carry a content hash too, put there by the hashedImages plugin in
+# vite.config.js, so a changed image is a new URL and an unchanged one keeps
+# its URL forever. That is what makes immutable safe here. Before the hashing
+# this had to be short, because a corrected crop stayed invisible for as long
+# as the header said.
 [[headers]]
   for = "/images/*"
   [headers.values]
-    Cache-Control = "public, max-age=3600, stale-while-revalidate=604800"
+    Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
   for = "/*"

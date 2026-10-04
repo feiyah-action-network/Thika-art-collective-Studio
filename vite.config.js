@@ -1,5 +1,6 @@
-import { readFileSync, writeFileSync } from 'node:fs';
-import { basename, dirname, resolve } from 'node:path';
+import { createHash } from 'node:crypto';
+import { readFileSync, writeFileSync, readdirSync, renameSync } from 'node:fs';
+import { basename, dirname, extname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 
@@ -84,10 +85,94 @@ function sitemap() {
   };
 }
 
+/**
+ * Content hashes the images, the way Rollup already hashes the bundles.
+ *
+ * Why this exists. Everything in public/ is copied to dist verbatim, so an
+ * image kept its name when its contents changed. On this site that happens
+ * constantly: a crop gets corrected, a work is rephotographed, an artist sends
+ * a better portrait. With a long cache header, a corrected image stayed
+ * invisible for as long as the header said, to everybody who had already seen
+ * the page, including the studio checking whether the fix had landed. The
+ * header had to be short, which gave up caching on the heaviest part of the
+ * site to work around a naming problem.
+ *
+ * Hashing solves both ends: a changed file is a new URL, so it is fetched
+ * immediately, and an unchanged file keeps its URL forever, so it can be
+ * immutable for a year. netlify.toml sets that header.
+ *
+ * It runs after the bundle is written, when Vite has already copied public/
+ * into dist, and it rewrites the references in the built pages rather than in
+ * the source. The source keeps plain readable paths, the dev server serves
+ * those paths straight from public/, and nothing about authoring changes.
+ */
+function hashedImages() {
+  return {
+    name: 'thika-hashed-images',
+    apply: 'build',
+    enforce: 'post',
+    closeBundle() {
+      const dist = resolve(root, 'dist');
+      const imagesDir = join(dist, 'images');
+
+      const walk = (dir) =>
+        readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+          const full = join(dir, entry.name);
+          return entry.isDirectory() ? walk(full) : [full];
+        });
+
+      /* oldUrl -> newUrl, longest first so no key can be a prefix of another. */
+      const renames = new Map();
+      for (const file of walk(imagesDir)) {
+        const bytes = readFileSync(file);
+        const hash = createHash('sha256').update(bytes).digest('hex').slice(0, 8);
+        const ext = extname(file);
+        const hashed = `${basename(file, ext)}.${hash}${ext}`;
+        renameSync(file, join(dirname(file), hashed));
+        renames.set(
+          `/images/${relative(imagesDir, file).split('\\').join('/')}`,
+          `/images/${relative(imagesDir, join(dirname(file), hashed)).split('\\').join('/')}`
+        );
+      }
+
+      const keys = [...renames.keys()].sort((a, b) => b.length - a.length);
+      const rewritable = /\.(html|css|js|xml|txt|json|webmanifest)$/;
+      let rewritten = 0;
+      const seen = new Set();
+
+      for (const file of walk(dist)) {
+        if (!rewritable.test(file)) continue;
+        const before = readFileSync(file, 'utf8');
+        let after = before;
+        for (const key of keys) {
+          if (!after.includes(key)) continue;
+          /* The Open Graph tag carries the absolute form of the same path. */
+          after = after.split(SITE_URL + key).join(SITE_URL + renames.get(key));
+          after = after.split(key).join(renames.get(key));
+          seen.add(key);
+        }
+        if (after !== before) {
+          writeFileSync(file, after);
+          rewritten += 1;
+        }
+      }
+
+      const unused = keys.length - seen.size;
+      console.log(
+        `images: ${keys.length} hashed, ${rewritten} files rewritten` +
+          (unused ? `, ${unused} not referenced by any page` : '')
+      );
+      if (unused) {
+        for (const key of keys.filter((k) => !seen.has(k))) console.log(`  unused  ${key}`);
+      }
+    }
+  };
+}
+
 const page = (name) => resolve(root, name);
 
 export default defineConfig({
-  plugins: [htmlIncludes(), sitemap()],
+  plugins: [htmlIncludes(), sitemap(), hashedImages()],
   build: {
     target: 'es2019',
     cssCodeSplit: false,
