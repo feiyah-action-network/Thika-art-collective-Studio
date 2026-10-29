@@ -359,6 +359,28 @@ built up with brass rosettes, shell, beadwork and salvaged fittings. Five of
 those are in the gallery now. Four more frames of untitled wearables came with
 them and are not up, because there is nothing to call them yet.
 
+### The photographer
+
+Stacey Waithera Kamiti, Star in the studio, photographs the work. She has no
+artwork pipeline, because what she makes is the photographs, so her portrait
+gets its own small script instead of being wedged into somebody else's:
+
+```bash
+node tools/process-photographer.mjs    # reads source/stacey-kamiti-portrait.webp
+```
+
+Her profile sits in its own section on the artists page rather than in the grid
+above it. The grid is the five people who make the work and the page is built
+around that; she makes the pictures of it, which is a different job and reads
+better given room than squeezed into a card. It is also the fullest profile on
+the page, because her biography was the most detailed thing anyone has sent.
+
+Everything in it is condensed from that biography. No client, date or credit is
+stated that she did not state, which is why the section says she photographs
+the work and stops there. Whether the photographs already in the gallery should
+carry her name is a question for the studio, not an assumption to make here.
+See "Before launch".
+
 ### The class photographs
 
 Three photographs of a Saturday children's class arrived with the studio's own
@@ -432,6 +454,11 @@ The following are placeholders and need the studio's real details:
   said, set in large type where they read as the studio's voice. The sections they
   sat beside are now single column. If the studio wants real quotations there, the
   layout takes them back easily, and the removed styling is in the git history.
+- Whether the photographs on the site should carry a credit to Stacey Waithera
+  Kamiti. She is the studio's photographer and the "Website photos" Drive folder
+  was shared from her account, so the professional frames are very probably hers,
+  but "very probably" is not a credit. A line on the gallery page costs nothing
+  and she has earned it if the answer is yes. Ask, then add it.
 - Who made the 29 works in the first Drive folder that are not on the site. That
   question is still open, and the second folder narrowed it rather than answering
   it: George's own work turned out to be the stitched collage and the leather, so
