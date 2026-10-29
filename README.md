@@ -421,6 +421,28 @@ left: all five artists have a real portrait now. The tile styles stay in the
 CSS, because a sixth artist would need one. Earlier revisions are in the git
 history.
 
+### Campaign packs
+
+A PDF of one or more artists' work, for sending to people who are not going to
+open the site.
+
+```bash
+node tools/make-campaign-pdf.mjs ndegwa ruitha --out pack.pdf
+```
+
+The arguments are the `data-artist` values in `gallery.html`, and everything in
+the PDF is read out of that markup rather than retyped. Titles, mediums, sizes
+and sold marks therefore cannot drift from the site: a correction in the
+gallery is a correction in the next pack. The only text written into the script
+is the short artist introduction on each divider page, lifted from the artists
+page.
+
+One work per page, the frame sized to the work rather than the page, which
+matters because these range from a 1000 x 329 panorama to tall portraits.
+Images are converted to JPEG, capped at 1800px on the long edge, which keeps a
+23 work pack at about 2.5 MB and sendable over WhatsApp. Output is not
+committed.
+
 ## Before launch
 
 The following are placeholders and need the studio's real details:
