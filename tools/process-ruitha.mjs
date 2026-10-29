@@ -8,8 +8,8 @@
  * printed captions and no extractable text of any kind. pdftotext returns
  * nothing and there are no bookmarks, so unlike the Kabiaru catalogue and the
  * Ndegwa portfolio there is no supplied title, medium, size, year or sold mark
- * to transcribe. Everything written below the images on the site is therefore a
- * description read off the photograph, and the gallery note says so.
+ * to transcribe, so the titles under these six were written rather than supplied.
+ * The materials named beside them are the studio's, not read off the photograph.
  *
  * Six of the eight pages are paintings. Two are photographs, and they go to
  * public/images/artists rather than into the gallery, because the gallery is

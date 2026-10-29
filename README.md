@@ -239,9 +239,9 @@ colour detail of the work in progress. It is very likely him, but the face is
 turned away and nothing in the file says so, so nothing on the page names the
 person in it.
 
-Because there was no text to transcribe, every title and every support named under
-these six is read off the photograph, and the gallery note says so in as many
-words. Four of them are signed "Ruitha 25" in the lower right. That is almost
+Because there was no text to transcribe, the six titles were written here rather
+than supplied. The materials named under them are the studio's, not read off the
+photographs. Four of them are signed "Ruitha 25" in the lower right. That is almost
 certainly 2025, but a year read off a brushstroke is not a year the artist stated,
 so none is printed. His biography, which he supplied separately, states no
 exhibition dates or venues, so his profile carries no exhibition list where Daniel
@@ -334,8 +334,7 @@ which is the frame his portrait is cut from. It writes 26 works into
 The filenames are the titles, which is the first time any of his work has had
 one. Two look like slips, "Sunlt melanin" and "The matriach", and they are left
 as given rather than corrected on his behalf. No medium, size or year came with
-any of them, so the line under each title describes only what the photograph
-shows.
+any of them, so the line under each title names the materials and stops there.
 
 Five of the 26 were already in the gallery under descriptive stand in titles.
 They keep their slug, so no link breaks, and gain the title he gave them:
@@ -433,9 +432,10 @@ The following are placeholders and need the studio's real details:
 - A portrait of Dennis Bull Ndegwa. Every other artist has one now. His portfolio
   did not contain one, so his card still leads with a painting.
 - Gallery titles for the 16 pieces that came from no supplied caption. Those are
-  descriptive stand ins written from the photographs. The titles alone are
-  outstanding: the materials named under them are read off the photographs and
-  the studio has confirmed them, so do not describe those as pending too.
+  descriptive stand ins written here. Titles are the only thing outstanding: the
+  materials named under every piece are the studio's and are correct, so do not
+  describe them as pending, and do not say they were read off the photographs.
+  Both have been written on this page and both were wrong.
   Kabiaru's 33 and Ndegwa's 14 carry their own titles, mediums and sizes,
   and Kamiti's 26 carry titles but no medium, size or year. John Ruitha Maina's 6
   have none of it, because the file he sent has no text in it at all, so naming
