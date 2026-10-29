@@ -433,8 +433,10 @@ The following are placeholders and need the studio's real details:
 - A portrait of Dennis Bull Ndegwa. Every other artist has one now. His portfolio
   did not contain one, so his card still leads with a painting.
 - Gallery titles for the 16 pieces that came from no supplied caption. Those are
-  descriptive stand ins written from the photographs, with materials read off the
-  images. Kabiaru's 33 and Ndegwa's 14 carry their own titles, mediums and sizes,
+  descriptive stand ins written from the photographs. The titles alone are
+  outstanding: the materials named under them are read off the photographs and
+  the studio has confirmed them, so do not describe those as pending too.
+  Kabiaru's 33 and Ndegwa's 14 carry their own titles, mediums and sizes,
   and Kamiti's 26 carry titles but no medium, size or year. John Ruitha Maina's 6
   have none of it, because the file he sent has no text in it at all, so naming
   those is a short conversation with an artist who is already reachable. Three
