@@ -27,8 +27,8 @@
           </h1>
           <p class="hero__lede" data-hero-fade>
             These are the people the studio is built around, and below them the photographer who
-            documents the work. Four of the five artist profiles are written from what each artist
-            supplied. The fifth is still being collected.
+            documents the work. Every profile here is written from what that person supplied,
+            in their own account of what they do.
           </p>
         </div>
       </section>
@@ -401,23 +401,59 @@
             </article>
 
             <article class="artist" data-reveal>
-              <div class="artist__media artist__media--initials" style="--tile: var(--metal);">
-                <span class="artist__initials" aria-hidden="true">PN</span>
-                <span class="media-note">Portrait pending</span>
+              <div class="artist__media">
+                <img
+                  src="/images/artists/peter-ndirangu.webp"
+                  srcset="/images/artists/peter-ndirangu-300.webp 300w, /images/artists/peter-ndirangu.webp 600w"
+                  sizes="(min-width: 64em) 30vw, (min-width: 40em) 45vw, 92vw"
+                  alt="Peter Ndirangu in a navy t-shirt, seated in front of one of his woven technique paintings, a face built from thousands of small coloured strokes on black"
+                  width="600"
+                  height="600"
+                  loading="lazy"
+                  decoding="async"
+                />
               </div>
               <div class="artist__body">
                 <h2 class="artist__name">Peter Ndirangu</h2>
-                <p class="artist__role">Medium to be confirmed</p>
+                <p class="artist__role">Acrylic in a woven like technique, portraits and murals</p>
 
                 <details class="artist__more">
                   <summary>Profile</summary>
                   <div class="artist__panel">
+                    <!--
+                      Condensed from the biography he supplied, which is written
+                      in the first person. The exhibition counts are his, and
+                      they are counts rather than a list because a list is not
+                      what he sent. No gallery, city or year is named here that
+                      he did not name, which is why this profile has numbers
+                      where Daniel's and Dennis's have venues.
+                    -->
                     <p>
-                      The studio is still collecting this profile: the material worked with, a
-                      portrait, and the artist's own account of the practice.
+                      A Nairobi based visual artist, eleven years in. He describes his work as
+                      imaginative composition drawn from personal experience and from the
+                      environment around him, and his subjects as domestic and wild animals, the
+                      big five in particular.
                     </p>
                     <p style="margin-top: 1rem;">
-                      <a class="link-arrow" href="/contact.html">Ask the studio <span aria-hidden="true">&rarr;</span></a>
+                      The style he has been building is a woven like painting technique: the image
+                      assembled from thousands of small separate strokes, so a face reads as
+                      something threaded together rather than brushed. He works it into portraits
+                      as well, and takes murals and commissions.
+                    </p>
+
+                    <h3 class="artist__subhead">Record</h3>
+                    <ul class="artist__list">
+                      <li>Eight solo exhibitions</li>
+                      <li>More than sixteen joint exhibitions, in and around East Africa</li>
+                      <li>Work sold in Europe and elsewhere</li>
+                    </ul>
+
+                    <p style="margin-top: 1rem;">
+                      Photographs of his pieces have not reached the studio yet, so none are in the
+                      gallery. The painting behind him is one of them.
+                    </p>
+                    <p style="margin-top: 1rem;">
+                      <a class="link-arrow" href="/contact.html">Commission a piece <span aria-hidden="true">&rarr;</span></a>
                     </p>
                   </div>
                 </details>
@@ -436,7 +472,7 @@
         Everything below is condensed from the biography she supplied. No
         client, date or credit is stated that she did not state.
       -->
-      <section class="section edge-top" style="background: var(--paper);">
+      <section class="section edge-top" id="photographer" style="background: var(--paper);">
         <div class="wrap">
           <div class="section-head" data-reveal>
             <p class="eyebrow">Behind the camera</p>
