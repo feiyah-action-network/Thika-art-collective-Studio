@@ -359,15 +359,23 @@ built up with brass rosettes, shell, beadwork and salvaged fittings. Five of
 those are in the gallery now. Four more frames of untitled wearables came with
 them and are not up, because there is nothing to call them yet.
 
-### The photographer
+### Portraits with no pipeline behind them
 
-Stacey Waithera Kamiti, Star in the studio, photographs the work. She has no
-artwork pipeline, because what she makes is the photographs, so her portrait
-gets its own small script instead of being wedged into somebody else's:
+Most portraits are produced by the script that handles that person's work. Two
+people do not fit that: Stacey Waithera Kamiti makes the photographs rather
+than the work in them, and Peter Ndirangu has sent a biography and a portrait
+but no pictures of his pieces yet.
 
 ```bash
-node tools/process-photographer.mjs    # reads source/stacey-kamiti-portrait.webp
+node tools/process-portraits.mjs    # reads source/*-portrait.*
 ```
+
+Shapes differ per person, which is why the entries are per person. The artist
+grid takes squares. The photographer's section is a two column feature, so hers
+is 4:5. This began as a one person script for her; Peter arriving made the case
+for generalising it rather than adding a second.
+
+### The photographer
 
 Her profile sits in its own section on the artists page rather than in the grid
 above it. The grid is the five people who make the work and the page is built
@@ -377,9 +385,12 @@ the page, because her biography was the most detailed thing anyone has sent.
 
 Everything in it is condensed from that biography. No client, date or credit is
 stated that she did not state, which is why the section says she photographs
-the work and stops there. Whether the photographs already in the gallery should
-carry her name is a question for the studio, not an assumption to make here.
-See "Before launch".
+the work and stops there. The studio confirmed that the photographs are hers, so the
+footer credits her on every page and the gallery note says it precisely:
+photographs of the work are hers except where an artist documented their own
+and supplied it, which is the case for Kabiaru's catalogue, Ndegwa's portfolio
+and Ruitha's compilation. Both Drive folders the studio shared, "Website
+photos" and "GEORGE", are owned by her account.
 
 ### The class photographs
 
@@ -404,22 +415,23 @@ The three children's faces are legible. See the note under "Before launch".
 yet. It carries a "placeholder" mark in its corner and a visible "Photograph
 pending" tag on the page.
 
-The artist portraits and gallery tiles this script used to generate are gone. The
-artists page uses an initial tile instead, which reads as a deliberate stand in
-rather than a face that is not the person's. One card still carries one, Peter
-Ndirangu's. Earlier revisions are in the git history.
+The artist portraits and gallery tiles this script used to generate are gone.
+For a while the artists page used initial tiles instead, which read as a
+deliberate stand in rather than a face that is not the person's. There are none
+left: all five artists have a real portrait now. The tile styles stay in the
+CSS, because a sixth artist would need one. Earlier revisions are in the git
+history.
 
 ## Before launch
 
 The following are placeholders and need the studio's real details:
 
-- A portrait, a medium and a biography for Peter Ndirangu in `artists.html`.
-  Nothing is written on his behalf, so his card shows an initial tile, a "Medium to
-  be confirmed" line and a profile panel saying what is still being collected.
-  Daniel Kabiaru, Dennis Bull Ndegwa and John Ruitha Maina are filled in from the
-  documents they supplied, and George Kamiti from his own folder and a photograph
-  of him at the bench. Dennis still has no portrait, because his portfolio does not
-  contain one.
+- Photographs of Peter Ndirangu's work. He is the only artist with a profile and
+  no pieces in the gallery. His biography describes a woven like painting
+  technique and eight solo exhibitions, and the only example of it anywhere on
+  the site is the painting hanging behind him in his portrait.
+- A portrait of Dennis Bull Ndegwa. Every other artist has one now. His portfolio
+  did not contain one, so his card still leads with a painting.
 - Gallery titles for the 16 pieces that came from no supplied caption. Those are
   descriptive stand ins written from the photographs, with materials read off the
   images. Kabiaru's 33 and Ndegwa's 14 carry their own titles, mediums and sizes,
@@ -454,11 +466,6 @@ The following are placeholders and need the studio's real details:
   said, set in large type where they read as the studio's voice. The sections they
   sat beside are now single column. If the studio wants real quotations there, the
   layout takes them back easily, and the removed styling is in the git history.
-- Whether the photographs on the site should carry a credit to Stacey Waithera
-  Kamiti. She is the studio's photographer and the "Website photos" Drive folder
-  was shared from her account, so the professional frames are very probably hers,
-  but "very probably" is not a credit. A line on the gallery page costs nothing
-  and she has earned it if the answer is yes. Ask, then add it.
 - Who made the 29 works in the first Drive folder that are not on the site. That
   question is still open, and the second folder narrowed it rather than answering
   it: George's own work turned out to be the stitched collage and the leather, so
