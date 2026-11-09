@@ -55,6 +55,23 @@ const INTROS = {
       'His recent work combines acrylics with recycled unga paper, drawing on bodabodas as symbolic vessels for Kenya’s economic shifts, urban motion and the grit of people hustling for their daily bread, or kutafuta unga as he puts it. He signs his work Bull.'
     ]
   },
+  kamiti: {
+    name: 'George Kamiti',
+    role: 'Stitched metal, salvaged packaging and leather',
+    body: [
+      'He cuts sheet metal, flattened tin labels, packaging and leather to shape, scorches them, and joins them on a sewing machine. The stitch line is left visible, so every piece is drawn twice: once by the cut edge and once by the thread that holds it down.',
+      'Faces come out of scorched panels, and hair out of whatever grid the packaging offers, seed packets, tomato paste labels, netting, dotted paper. Most of the work is for a wall, but the G-avants series is not: those are wearable, leather bodices built up with brass rosettes, shell, beadwork and salvaged fittings.',
+      'The titles are his own. No medium, size or year came with them, so the line under each one names what the piece is made of and stops there.'
+    ]
+  },
+  kabiaru: {
+    name: 'Daniel Kabiaru',
+    role: 'Acrylic on cardboard and canvas, and cardboard sculpture',
+    body: [
+      'He works in two directions at once. One is paint on torn corrugated cardboard, a single figure from the street set against poured black and white paint and a hard band of colour. The other is canvas, where the same figures dissolve into curling ribbons of colour.',
+      'The work here is dated 2024 to 2026, with the titles, mediums and sizes he records for each piece. It includes one sculpture, a seated figure built entirely from rolled cardboard. He signs his work Dan Kabiaru.'
+    ]
+  },
   ruitha: {
     name: 'John Ruitha Maina',
     role: 'Acrylic on salvaged cardboard and packaging',
